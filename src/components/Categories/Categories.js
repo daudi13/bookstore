@@ -1,8 +1,7 @@
 import React from 'react';
 
-const BookList = () => {
-  <>
-  </>;
+const Categories = () => {
+  <button type="button">Check Status</button>;
 };
 
-export default BookList;
+export default Categories;
