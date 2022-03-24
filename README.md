@@ -23,7 +23,7 @@ The Bookstore is a website similar to the "Awesome Books" website built in the p
 To get a local copy up and running follow the steps below
 
 ### 
-- clone this repo by copy pasting this on your terminal ``git clone https://github.com/daudi13/math-magician.git``
+- clone this repo by copy pasting this on your terminal ``git clone https://github.com/daudi13/bookstore.git``
 
 - open the project folder 'cd math-magician'
 - Run 'npm install' to install all dependencies
