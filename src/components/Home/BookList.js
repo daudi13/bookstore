@@ -1,12 +1,11 @@
 import React from 'react';
 import Bookitem from './Bookitem';
+import './BookList.css';
 
 const BookList = () => (
-  <>
-    <ul>
-      <Bookitem />
-    </ul>
-  </>
+  <ul className="booklist-box">
+    <Bookitem />
+  </ul>
 );
 
 export default BookList;
