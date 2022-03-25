@@ -8,7 +8,7 @@ const Navbar = () => (
       <div className="logo">BookStore CMS</div>
       <ul className="nav">
         <li><Link to="/">Home</Link></li>
-        <li><Link to="Category">Category</Link></li>
+        <li><Link to="Categories">Category</Link></li>
       </ul>
       <div className="userIcon">.</div>
     </div>

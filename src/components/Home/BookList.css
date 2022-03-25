@@ -1,7 +1,8 @@
 .booklist-box {
   max-width: 1200px;
   width: 100%;
-  margin-top: 3rem;
+  z-index: 1;
+  height: 100%;
 }
 
 .booklist-box >  * + * {
