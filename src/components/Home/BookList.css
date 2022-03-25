@@ -3,3 +3,7 @@
   width: 100%;
   margin-top: 3rem;
 }
+
+.booklist-box >  * + * {
+  margin-top: 37px;
+}

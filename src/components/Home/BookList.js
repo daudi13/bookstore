@@ -5,6 +5,8 @@ import './BookList.css';
 const BookList = () => (
   <ul className="booklist-box">
     <Bookitem />
+    <Bookitem />
+    <Bookitem />
   </ul>
 );
 
