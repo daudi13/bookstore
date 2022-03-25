@@ -29,12 +29,12 @@ form > h3 {
   padding: 0.375rem 9.938rem 0.563rem 1rem;
   margin-right: 2rem;
 }
+
 .form-container > button {
-  padding: .575rem 1rem;
+  padding: 0.575rem 1rem;
   text-align: center;
   width: 300px;
   background-color: rgb(40, 148, 236);
   color: #fff;
   border: none;
 }
-
