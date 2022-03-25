@@ -1,13 +1,14 @@
 import React from 'react';
+import './Bookitem.css';
 
 const BookList = () => (
   <li className="bookItem">
     <ul className="bookItems-secs">
       <li className="bookDetails">
         <ul className="books">
-          <li>Action</li>
-          <li>The Hunger Games</li>
-          <li>Suzanne Collins</li>
+          <li className="genre">Action</li>
+          <li className="booktitle">The Hunger Games</li>
+          <li className="bookAuthor">Suzanne Collins</li>
         </ul>
         <ul className="actionButtons">
           <li><button type="button">Comments</button></li>
@@ -17,19 +18,23 @@ const BookList = () => (
       </li>
       <li className="update-sec">
         <ul>
-          <li>
+          <li className="update-secInner">
             <span className="circle" />
             <ul className="percentage">
-              <li>64%</li>
+              <li className="number">64%</li>
               <li>Complete</li>
             </ul>
           </li>
         </ul>
       </li>
       <li className="chapter-sec">
-        <ul>
-          <li>CURRENT CHAPTER</li>
-          <li>Chapter 17</li>
+        <ul className="chapter-secInner">
+          <li className="title">CURRENT CHAPTER</li>
+          <li>
+            Chapter
+            {' '}
+            <span className="chapter">17</span>
+          </li>
           <li><button type="button">UPDATE PROGRESS</button></li>
         </ul>
       </li>
