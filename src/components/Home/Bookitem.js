@@ -1,14 +1,19 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Bookitem.css';
 
-const BookList = () => (
+const Bookitem = ({
+  // eslint-disable-next-line react/prop-types
+  title, author, genre, complete, chapter,
+}) => (
   <li className="bookItem">
     <ul className="bookItems-secs">
       <li className="bookDetails">
         <ul className="books">
-          <li className="genre">Action</li>
-          <li className="booktitle">The Hunger Games</li>
-          <li className="bookAuthor">Suzanne Collins</li>
+          <li className="genre">{genre}</li>
+          <li className="booktitle">{title}</li>
+          <li className="bookAuthor">{author}</li>
         </ul>
         <ul className="actionButtons">
           <li><button type="button">Comments</button></li>
@@ -21,7 +26,7 @@ const BookList = () => (
           <li className="update-secInner">
             <span className="circle" />
             <ul className="percentage">
-              <li className="number">64%</li>
+              <li className="number">{complete}</li>
               <li>Complete</li>
             </ul>
           </li>
@@ -33,7 +38,7 @@ const BookList = () => (
           <li>
             Chapter
             {' '}
-            <span className="chapter">17</span>
+            <span className="chapter">{chapter}</span>
           </li>
           <li><button type="button">UPDATE PROGRESS</button></li>
         </ul>
@@ -42,4 +47,11 @@ const BookList = () => (
   </li>
 );
 
-export default BookList;
+Bookitem.protoTypes = {
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  genre: PropTypes.string.isRequired,
+  complete: PropTypes.string.isRequired,
+};
+
+export default Bookitem;
