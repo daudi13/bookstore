@@ -1,14 +1,15 @@
 import React from 'react';
+import './BookForm.css';
 
 const BookForm = () => (
   <form>
     <h3>Add New Books</h3>
-    <div>
+    <div className="form-container">
       <label htmlFor="book-title">
-        <input type="text" htmlFor="book-title" placeholder="book title" />
+        <input type="text" htmlFor="book-title" placeholder="book title" className="input" />
       </label>
       <label htmlFor="categories">
-        <select id="books categories">
+        <select id="books categories" className="category">
           <option>Categories</option>
           <option>Fiction</option>
           <option>Non-fiction</option>
