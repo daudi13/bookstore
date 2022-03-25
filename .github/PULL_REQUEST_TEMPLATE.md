@@ -2,12 +2,12 @@ _Please remove all italic texts including this one. Feel free to add/remove text
 
 ## Description
 
-This project will lay foundations for your Bookstore website. You will create the React part of the app. You will also set up routing using React Router.
-
-- Add item 1
-- Modified item 2
-- ...
-
+This project will lay foundations for the Bookstore website. I did the following in this Project
+- used Reat Routers to set up Navigation and Link to the two pages
+- Added Two pages to my project the Books and Categories page
+- The category page has a button "Check status" only
+- Created a component called Books for displaying a single book with (title and an Author)
+-  Created a separate component for the form.
 ### General requirements
 
 _Check items below by adding x between brackets._
