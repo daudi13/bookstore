@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Bookitem.css';
+import './Book.css';
 
-const Bookitem = ({
+const Book = ({
   // eslint-disable-next-line react/prop-types
   title, author, genre, complete, chapter,
 }) => (
@@ -46,11 +46,11 @@ const Bookitem = ({
   </li>
 );
 
-Bookitem.protoTypes = {
+Book.protoTypes = {
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
   genre: PropTypes.string.isRequired,
   complete: PropTypes.string.isRequired,
 };
 
-export default Bookitem;
+export default Book;
