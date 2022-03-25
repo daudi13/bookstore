@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Navbar = () => {
+const Navbar = () => (
   <div className="navBar">
     <div className="logo">BookStore CMS</div>
     <ul className="nav">
@@ -8,7 +8,7 @@ const Navbar = () => {
       <li>Categories</li>
     </ul>
     <div className="userIcon">A</div>
-  </div>;
-};
+  </div>
+);
 
 export default Navbar;
