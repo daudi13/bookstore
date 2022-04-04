@@ -1,0 +1,10 @@
+.booklist-box {
+  max-width: 1200px;
+  width: 100%;
+  z-index: 1;
+  height: 100%;
+}
+
+.booklist-box > * + * {
+  margin-top: 37px;
+}
