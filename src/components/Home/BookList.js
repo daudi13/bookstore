@@ -14,18 +14,19 @@ const BookList = () => {
     },
     {
       id: 2,
-      author: 'Mark Twain',
-      title: 'In the heart',
-      complete: '55%',
-      chapter: '12',
+      author: 'Sussanne Collins',
+      title: 'Hunger Games',
+      complete: '75%',
+      chapter: '11',
       genre: 'fiction',
     },
     {
       id: 3,
-      author: 'Mark Twain',
-      title: 'In the heart',
-      complete: '55%',
-      chapter: '12',
+      author: 'John Grisham',
+      title: 'Rainmaker',
+      complete: '85%',
+      chapter: '22',
+      genre: 'Legal drama',
     }]);
 
   const createBook = () => (
