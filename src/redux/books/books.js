@@ -1,17 +1,15 @@
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-const intialState = [];
+const intialState = [{ title: 'In the Heart', author: 'Mike scotch' }];
 
 export const addbook = (payload) => ({
   type: ADD_BOOK,
-  index: 0,
   payload,
 });
 
 export const removeBook = (payload) => ({
   type: REMOVE_BOOK,
-  index: 0,
   payload,
 });
 
@@ -21,10 +19,7 @@ const reducer = (state = intialState, action) => {
       return [...state, action.payload];
 
     case REMOVE_BOOK:
-      return state.map((book, index) => {
-        if (action.index === index) state.splice(index - 1, 1);
-        return book;
-      });
+      return state.filter((book) => book.id !== action.payload.id);
     default:
       return state;
   }
