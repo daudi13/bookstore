@@ -1,18 +1,16 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
 
-const Book = ({
-  // eslint-disable-next-line react/prop-types
-  title, author, genre, complete, chapter,
-}) => (
+const Book = ({ book }) => (
   <li className="bookItem">
     <ul className="bookItems-secs">
       <li className="bookDetails">
         <ul className="books">
-          <li className="genre">{genre}</li>
-          <li className="booktitle">{title}</li>
-          <li className="bookAuthor">{author}</li>
+          <li className="genre">{}</li>
+          <li className="booktitle">{book.title}</li>
+          <li className="bookAuthor">{book.author}</li>
         </ul>
         <ul className="actionButtons">
           <li><button type="button">Comments</button></li>
@@ -25,7 +23,7 @@ const Book = ({
           <li className="update-secInner">
             <span className="circle" />
             <ul className="percentage">
-              <li className="number">{complete}</li>
+              <li className="number">{}</li>
               <li>Complete</li>
             </ul>
           </li>
@@ -37,7 +35,7 @@ const Book = ({
           <li>
             Chapter
             {' '}
-            <span className="chapter">{chapter}</span>
+            <span className="chapter">{}</span>
           </li>
           <li><button type="button">UPDATE PROGRESS</button></li>
         </ul>
