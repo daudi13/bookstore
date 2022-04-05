@@ -8,6 +8,9 @@ const BookForm = () => (
       <label htmlFor="book-title">
         <input type="text" htmlFor="book-title" placeholder="book title" className="input" />
       </label>
+      <label htmlFor="book-author">
+        <input type="text" htmlFor="book-book-author" placeholder="book authour" className="input" />
+      </label>
       <label htmlFor="categories">
         <select id="books categories" className="category">
           <option>Categories</option>

@@ -5,7 +5,6 @@ import './BookList.css';
 
 const BookList = () => {
   const books = useSelector((state) => state.reducer);
-  console.log(books);
   return (
     <ul className="booklist-box">
       {
