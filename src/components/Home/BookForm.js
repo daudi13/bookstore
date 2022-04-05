@@ -10,8 +10,6 @@ const BookForm = () => {
     title: '',
     author: '',
   });
-
-  console.log(book);
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
