@@ -1,9 +1,7 @@
-import uuid from 'react-uuid';
-
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
 
-const intialState = [{ id: uuid(), title: 'In the Heart', author: 'Mike scotch' }];
+const intialState = [];
 
 export const addbook = (payload) => ({
   type: ADD_BOOK,

@@ -16,7 +16,7 @@ const BookForm = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    return setBook((prevbook) => ({
+    setBook((prevbook) => ({
       ...prevbook,
       id: uuid(),
       [name]: value,
@@ -26,6 +26,8 @@ const BookForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(addbook(book));
+    document.querySelector('.one').value = '';
+    document.querySelector('.two').value = '';
   };
 
   return (
@@ -37,7 +39,7 @@ const BookForm = () => {
             type="text"
             htmlFor="book-title"
             placeholder="book title"
-            className="input"
+            className="input one"
             name="title"
             value={book.title}
             onChange={handleChange}
@@ -48,7 +50,7 @@ const BookForm = () => {
             type="text"
             htmlFor="book-book-author"
             placeholder="book authour"
-            className="input"
+            className="input two"
             name="author"
             value={book.author}
             onChange={handleChange}
