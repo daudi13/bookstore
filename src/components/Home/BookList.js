@@ -8,12 +8,12 @@ const BookList = () => {
   return (
     <ul className="booklist-box">
       {
-        books.map((book) => (
+        books.length ? books.map((book) => (
           <Book
             key={book.id}
             book={book}
           />
-        ))
+        )) : <h2 className="notice">No books to display!!</h2>
     }
     </ul>
   );
