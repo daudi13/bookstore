@@ -3,15 +3,25 @@ import API_URL from '../../Database/database';
 
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
 const REMOVE_BOOK = 'bookstore/books/REMOVE_BOOK';
+const GET_BOOK = 'bookstore/books/GET_BOOK';
 
 const intialState = [];
 
 export const addbook = (book) => async (dispatch) => {
-  await axios(API_URL)
+  await axios.post(API_URL)
     .then((response) => response.json())
     .then(
       () => dispatch({ type: ADD_BOOK, payload: book }),
       () => dispatch({ type: ADD_BOOK, payload: null }),
+    );
+};
+
+export const getBooks = () => async (dispatch) => {
+  await axios.get(API_URL)
+    .then((books) => books.json())
+    .then(
+      (data) => dispatch({ type: GET_BOOK, payload: data }),
+      () => dispatch({ type: GET_BOOK, payload: [] }),
     );
 };
 
