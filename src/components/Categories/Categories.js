@@ -12,9 +12,6 @@ const Categories = () => {
   return (
     <>
       <button type="button" onClick={handleAction}>Check Status</button>
-      <br />
-      <br />
-      <br />
       {Categories}
     </>
   );
