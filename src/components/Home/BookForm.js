@@ -9,6 +9,7 @@ const BookForm = () => {
     id: '',
     title: '',
     author: '',
+    category: '',
   });
   const dispatch = useDispatch();
 
@@ -55,7 +56,13 @@ const BookForm = () => {
           />
         </label>
         <label htmlFor="categories">
-          <select id="books categories" className="category">
+          <select
+            id="books categories"
+            className="category"
+            name="category"
+            value={book.category}
+            onChange={handleChange}
+          >
             <option>Categories</option>
             <option>Fiction</option>
             <option>Non-fiction</option>

@@ -1,4 +1,3 @@
-import { object } from 'prop-types';
 import Database from '../../Database/database';
 
 const ADD_BOOK_REQUEST = 'bookstore/books/ADD_BOOK_REQUEST';
@@ -69,8 +68,8 @@ export function getBooks() {
   return (dispatch) => {
     dispatch(getBookRequest());
     Database.getbooks()
-      .then((book) => {
-        dispatch(getBookSuccess(book));
+      .then((data) => {
+        dispatch(getBookSuccess(data));
       })
       .catch((error) => dispatch(getBooksFail(error.message)));
   };
@@ -148,7 +147,7 @@ const reducer = (state = intialState, action) => {
       return {
         ...state,
         loading: false,
-        bookArr: object.fromEntries(
+        bookArr: Object.fromEntries(
           Object.entries(state.bookArr).filter(
             (e) => e[0] !== action.payload,
           ),
