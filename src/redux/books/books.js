@@ -1,4 +1,3 @@
-import { func } from 'prop-types';
 import Database from '../../Database/database';
 
 const ADD_BOOK_REQUEST = 'bookstore/books/ADD_BOOK_REQUEST';
@@ -23,12 +22,12 @@ export const addBookRequest = () => ({
   type: ADD_BOOK_REQUEST,
 });
 
-export const addbookSuccess = (booksArr) => ({
+export const addBookSuccess = (booksArr) => ({
   type: ADD_BOOK_SUCCESS,
   payload: booksArr,
 });
 
-export const addbookFail = (error) => ({
+export const addBookFail = (error) => ({
   type: ADD_BOOK_FAIL,
   payload: error,
 });
@@ -43,21 +42,37 @@ export function addbook(book) {
       .then(() => {
         const bookNew = {};
         bookNew[id] = [{ title, author, category }];
-        dispatch(addbookSuccess(bookNew));
+        dispatch(addBookSuccess(bookNew));
       })
       .catch((error) => {
-        dispatch(addbookFail(error.message));
+        dispatch(addBookFail(error.message));
       });
   };
 }
 
-export const getBooks = () => async (dispatch) => {
-  await (API_URL)
-    .then((books) => books.json())
-    .then(
-      (data) => dispatch({ type: GET_BOOK, payload: data }),
-      () => dispatch({ type: GET_BOOK, payload: [] }),
-    );
+export const getBookRequest = () => ({
+  type: GET_BOOKS_REQUEST,
+});
+
+export const getBookSuccess = (bookArr) => ({
+  type: GET_BOOKS_SUCCESS,
+  payload: bookArr,
+});
+
+export const getBooksFail = (error) => ({
+  type: GET_BOOKS_FAIL,
+  payload: error,
+});
+
+export function getBooks() {
+  return (dispatch) => {
+    dispatch(getBookRequest());
+    Database.getbooks()
+      .then((book) => {
+        dispatch(getBookSuccess(book));
+      })
+      .catch((error) => dispatch(getBooksFail(error.message)));
+  };
 };
 
 export const removeBook = (payload) => ({
