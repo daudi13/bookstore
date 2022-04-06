@@ -73,12 +73,34 @@ export function getBooks() {
       })
       .catch((error) => dispatch(getBooksFail(error.message)));
   };
-};
+}
 
-export const removeBook = (payload) => ({
-  type: REMOVE_BOOK,
-  payload,
+export const removeBookRequest = () => ({
+  type: REMOVE_BOOK_REQUEST,
 });
+
+export const removeBookSuccess = (id) => ({
+  type: REMOVE_BOOK_SUCCESS,
+  payload: id,
+});
+
+export const removeBookFail = (error) => ({
+  type: REMOVE_BOOK_FAIL,
+  payload: error,
+});
+
+export function removeBook(id) {
+  return (dispatch) => {
+    dispatch(removeBookRequest());
+    Database.delBook(id)
+      .then(() => {
+        dispatch(removeBookSuccess(id));
+      })
+      .catch((error) => {
+        dispatch(removeBookFail(error.message));
+      });
+  };
+}
 
 const reducer = (state = intialState, action) => {
   switch (action.type) {
