@@ -1,4 +1,4 @@
-class BookStoreAPI {
+class Database {
   static API_URL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/dUOcYELpBonSfWBKhXX4/books';
 
   static async addBooks(id, title, author) {
@@ -60,4 +60,4 @@ class BookStoreAPI {
   }
 }
 
-export default BookStoreAPI;
+export default Database;
