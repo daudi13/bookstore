@@ -1,4 +1,3 @@
-import axios from 'axios';
 import API_URL from '../../Database/database';
 
 const ADD_BOOK = 'bookstore/books/ADD_BOOK';
@@ -8,7 +7,7 @@ const GET_BOOK = 'bookstore/books/GET_BOOK';
 const intialState = [];
 
 export const addbook = (book) => async (dispatch) => {
-  await axios.post(API_URL)
+  await fetch(API_URL)
     .then((response) => response.json())
     .then(
       () => dispatch({ type: ADD_BOOK, payload: book }),
@@ -17,7 +16,7 @@ export const addbook = (book) => async (dispatch) => {
 };
 
 export const getBooks = () => async (dispatch) => {
-  await axios.get(API_URL)
+  await (API_URL)
     .then((books) => books.json())
     .then(
       (data) => dispatch({ type: GET_BOOK, payload: data }),
@@ -37,6 +36,10 @@ const reducer = (state = intialState, action) => {
 
     case REMOVE_BOOK:
       return state.filter((book) => book.id !== action.payload.id);
+
+    case GET_BOOK: {
+      return [...state, action.payload];
+    }
     default:
       return state;
   }
