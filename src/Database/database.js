@@ -22,6 +22,22 @@ class BookStoreAPI {
       );
     }
   }
+
+  static async getbooks() {
+    const res = await fetch(this.API_URL);
+
+    if (res.status !== 200) {
+      throw new Error(
+        'Error fethching books',
+      );
+    }
+    try {
+      const response = await res.json();
+      return response;
+    } catch (error) {
+      throw new Error('database connection compromised');
+    }
+  }
 }
 
 export default BookStoreAPI;
