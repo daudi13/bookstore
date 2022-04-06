@@ -23,6 +23,26 @@ class BookStoreAPI {
     }
   }
 
+  static async delBook(id) {
+    const deleteBookEndpoint = `${this.API_URL}/${id}`;
+    const bookData = {};
+    bookData.item_id = id;
+
+    const res = await fetch(deleteBookEndpoint, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(bookData),
+    });
+
+    if (res.status < 200 || res.status > 299) {
+      throw new Error(
+        `Book with id of ${id} not deleted`,
+      );
+    }
+  }
+
   static async getbooks() {
     const res = await fetch(this.API_URL);
 
