@@ -1,3 +1,4 @@
+import { object } from 'prop-types';
 import Database from '../../Database/database';
 
 const ADD_BOOK_REQUEST = 'bookstore/books/ADD_BOOK_REQUEST';
@@ -104,15 +105,63 @@ export function removeBook(id) {
 
 const reducer = (state = intialState, action) => {
   switch (action.type) {
-    case ADD_BOOK:
-      return [...state, action.payload];
+    case ADD_BOOK_REQUEST:
+      return { ...state, loading: true };
 
-    case REMOVE_BOOK:
-      return state.filter((book) => book.id !== action.payload.id);
+    case ADD_BOOK_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        bookArr: { ...state.bookArr, ...action.payload },
+        error: '',
+      };
 
-    case GET_BOOK: {
-      return [...state, action.payload];
+    case ADD_BOOK_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     }
+    case GET_BOOKS_REQUEST:
+      return { ...state, loading: true };
+
+    case GET_BOOKS_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        bookArr: action.payload,
+        error: '',
+      };
+
+    case GET_BOOKS_FAIL: {
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    }
+    case REMOVE_BOOK_REQUEST:
+      return { ...state, loading: true };
+
+    case REMOVE_BOOK_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        bookArr: object.fromEntries(
+          Object.entries(state.bookArr).filter(
+            (e) => e[0] !== action.payload,
+          ),
+        ),
+        error: '',
+      };
+
+    case REMOVE_BOOK_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
     default:
       return state;
   }
