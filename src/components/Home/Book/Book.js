@@ -9,7 +9,7 @@ const Book = ({ book }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => (
-    dispatch(removeBook(book))
+    dispatch(removeBook(book.item_id))
   );
   return (
     <li className="bookItem">
