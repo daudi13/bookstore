@@ -5,12 +5,15 @@ import './Navbar.css';
 const Navbar = () => (
   <>
     <div className="navBar">
-      <div className="logo">BookStore CMS</div>
-      <ul className="nav">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="Categories">Category</Link></li>
-      </ul>
-      <div className="userIcon">.</div>
+      <nav>
+        <div className="logo">BookStore &reg;</div>
+        <ul className="nav">
+          <li><Link to="/">Home</Link></li>
+          <hr />
+          <li><Link to="Categories">Category</Link></li>
+        </ul>
+        <div className="userIcon">.</div>
+      </nav>
     </div>
   </>
 );
