@@ -17,7 +17,6 @@ const BookList = () => {
     item_id: element[0], ...element[1][0],
   }));
 
-  console.log(bookList);
   return (
     <ul className="booklist-box">
       {
