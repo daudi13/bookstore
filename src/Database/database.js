@@ -54,7 +54,6 @@ class Database {
     }
     try {
       const response = await res.json();
-      console.log(response);
       return response;
     } catch (error) {
       throw new Error('database connection compromised');

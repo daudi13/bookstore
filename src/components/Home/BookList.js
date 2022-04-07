@@ -1,26 +1,29 @@
 /* eslint-disable no-unused-expressions */
 import React, { useEffect } from 'react';
-import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getBooks } from '../../redux/books/books';
 import Book from './Book/Book';
 import './BookList.css';
 
 const BookList = () => {
+  const books = useSelector((store) => store.reducer);
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(getBooks());
   }, []);
-  const books = useSelector((state) => state.reducer, shallowEqual);
 
-  const { bookArr } = books;
+  const bookList = books.bookArr === undefined || Object.entries(books.bookArr).map((element) => ({
+    item_id: element[0], ...element[1][0],
+  }));
 
-  console.log(bookArr);
+  console.log(bookList);
   return (
     <ul className="booklist-box">
       {
-        books.length ? books.map((book) => (
+        bookList.length ? bookList.map((book) => (
           <Book
-            key={book.id}
+            key={book.item_id}
             book={book}
           />
         )) : <h2 className="notice">No books to display!!</h2>

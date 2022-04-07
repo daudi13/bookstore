@@ -12,11 +12,11 @@ const REMOVE_BOOK_REQUEST = 'bookstore/books/REMOVE_BOOK_REQUEST';
 const REMOVE_BOOK_SUCCESS = 'bookstore/books/REMOVE_BOOK_SUCCESS';
 const REMOVE_BOOK_FAIL = 'bookstore/books/REMOVE_BOOK_FAIL';
 
-const intialState = [{
+const intialState = {
   loading: false,
   booksArr: {},
   error: '',
-}];
+};
 
 export const addBookRequest = () => ({
   type: ADD_BOOK_REQUEST,
