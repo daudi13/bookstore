@@ -26,6 +26,7 @@ a {
   padding: 2px 3px;
   background-color: tomato;
   color: aliceblue;
+  text-shadow: #000;
   border-radius: 3px;
   font-size: 20px;
 box-shadow: -8px 6px 0px 0px rgba(0,0,0,0.75);
@@ -41,6 +42,20 @@ box-shadow: -8px 6px 0px 0px rgba(0,0,0,0.75);
   margin-right: 3rem;
   width: 150px;
   height: 100%;
+}
+
+.link-btn {
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.5s ease;
+  background-color: black;
+  padding: 10px;
+  font-family: 'Inter', sans-serif;
+}
+
+.active {
+  color: black;
+  background-color: #fff;
 }
 
 hr {
