@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   width: 100%;
-
+  font-family: 'Montserrat', sans-serif;
 }
 
 #root {
@@ -17,7 +17,6 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  font-family: 'Tajawal', sans-serif;
 }
 
 ul li {

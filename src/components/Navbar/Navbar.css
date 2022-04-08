@@ -9,16 +9,20 @@ nav {
   align-items: center;
   width: 100%;
   padding: 20px;
+  grid-template-columns: auto auto auto;
   position: fixed;
   top: 0;
-  justify-content: space-between;
-  background: rgb(238, 206, 169);
   box-shadow: 0.25em 0.25em 0.75em rgba(0,0,0,0.25), 0.125em 0.125em 0.125em rgba(0, 0, 0, 0.15);
 }
 
 .logo {
   font-size: 1.875rem;
   color: #0290ff;
+  font-weight: 700;
+}
+
+.userIcon {
+  margin-left: auto ;
 }
 
 a {
