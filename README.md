@@ -1,5 +1,6 @@
 # Bookstore
 
+![]()
 The Bookstore is a website similar to the "Awesome Books" website built in the previous module. You will create an MVP version of it that allows you to:
 
 
@@ -9,11 +10,11 @@ The Bookstore is a website similar to the "Awesome Books" website built in the p
 
 ## Project List
 
-- [ ] Initialize project with components (React only).
-- [ ] Add reducers and actions.
-- [ ] Use Redux in React components.
-- [ ] Connect to API.
-- [ ] Styling.
+- [x] Initialize project with components (React only).
+- [x] Add reducers and actions.
+- [x] Use Redux in React components.
+- [x] Connect to API.
+- [x] Styling.
 
 ## Built with
 - React
