@@ -1,16 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = () => (
   <>
     <div className="navBar">
-      <div className="logo">BookStore CMS</div>
-      <ul className="nav">
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="Categories">Category</Link></li>
-      </ul>
-      <div className="userIcon">.</div>
+      <nav>
+        <div className="logo">BookStore CMS</div>
+        <ul className="nav">
+          <li><NavLink className="link-btn" to="/">Home</NavLink></li>
+          <li><NavLink className="link-btn" to="Categories">Category</NavLink></li>
+        </ul>
+        <img src="./images/login.png" alt="user icon" className="userIcon" />
+      </nav>
     </div>
   </>
 );

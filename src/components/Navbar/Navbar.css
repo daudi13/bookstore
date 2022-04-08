@@ -1,31 +1,56 @@
+
 .navBar {
+  width: 100%;
+}
+
+nav {
   display: flex;
   align-items: center;
+  background-color: #e8e8e8;
   width: 100%;
-  max-width: 1500px;
-  border: 1px solid black;
   padding: 20px;
+  grid-template-columns: auto auto auto;
   position: fixed;
   top: 0;
-  justify-content: space-between;
+  z-index: 100;
+  box-shadow: 0.25em 0.25em 0.75em rgba(0, 0, 0, 0.25), 0.125em 0.125em 0.125em rgba(0, 0, 0, 0.15);
 }
 
 .logo {
-  margin-right: 4rem;
+  font-size: 1.875rem;
+  color: #0290ff;
+  font-weight: 700;
+  margin-right: 60px;
+}
+
+.link-btn {
+  color: grey;
+}
+
+.active {
+  color: #121212;
+}
+
+.userIcon {
+  margin-left: auto;
+  width: 30px;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
 }
 
 .nav {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 3rem;
+  width: 150px;
+  height: 100%;
 }
 
-.nav > * + * {
-  margin-left: 20px;
-}
-
-.userIcon {
-  height: 30px;
-  width: 30px;
-  background-color: aquamarine;
-  border: 1px solid black;
-  border-radius: 50%;
+hr {
+  margin-right: 15px;
+  color: #e8e8e8;
 }

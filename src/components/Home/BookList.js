@@ -17,16 +17,21 @@ const BookList = () => {
     item_id: element[0], ...element[1][0],
   }));
 
-  console.log(bookList);
   return (
     <ul className="booklist-box">
       {
-        bookList.length ? bookList.map((book) => (
-          <Book
-            key={book.item_id}
-            book={book}
-          />
-        )) : <h2 className="notice">No books to display!!</h2>
+        bookList.length ? bookList.map((book) => {
+          const progress = Math.floor(Math.random() * 30);
+          const chapter = Math.floor((progress / 30) * 100);
+          return (
+            <Book
+              key={book.item_id}
+              book={book}
+              chapter={chapter}
+              progress={progress}
+            />
+          );
+        }) : <h2 className="notice">No books to display!!</h2>
     }
     </ul>
   );
