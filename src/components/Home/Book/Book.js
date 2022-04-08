@@ -22,7 +22,9 @@ const Book = ({ book }) => {
           </ul>
           <ul className="actionButtons">
             <li><button type="button">Comments</button></li>
+            <hr />
             <li><button type="button" onClick={handleDelete}>Remove</button></li>
+            <hr />
             <li><button type="button">Edit</button></li>
           </ul>
         </li>
@@ -31,19 +33,20 @@ const Book = ({ book }) => {
             <li className="update-secInner">
               <span className="circle" />
               <ul className="percentage">
-                <li className="number">{}</li>
+                <li className="number">64%</li>
                 <li>Complete</li>
               </ul>
             </li>
           </ul>
         </li>
+        <span className="line" />
         <li className="chapter-sec">
           <ul className="chapter-secInner">
             <li className="title">CURRENT CHAPTER</li>
             <li>
               Chapter
               {' '}
-              <span className="chapter">{}</span>
+              <span className="chapter">22</span>
             </li>
             <li><button type="button">UPDATE PROGRESS</button></li>
           </ul>

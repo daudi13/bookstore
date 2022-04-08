@@ -1,7 +1,13 @@
 .bookItem {
   width: 100%;
   border: 1px solid #e8e8ee;
-  padding: 10px;
+  padding: 30px;
+}
+
+.books {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
 .bookItems-secs {
@@ -10,18 +16,23 @@
   justify-content: space-between;
 }
 
+.bookDetails {
+  width: 200px;
+}
+
 .books > .genre {
   font-size: 15px;
   font-weight: 700;
   color: grey;
-  margin-bottom: 10px;
 }
 
 .books > .booktitle {
   font-size: 24px;
   font-weight: 700;
-  margin-bottom: 10px;
   font-family: 'RobotoSlab', sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .books > .bookAuthor {
@@ -62,4 +73,10 @@
   background-color: rgb(40, 148, 236);
   color: #fff;
   border: none;
+}
+
+.line {
+  height: 70px;
+  background-color: #e1e1e1e;
+  width: 2px;
 }
