@@ -2,6 +2,7 @@
   width: 100%;
   border: 1px solid #e8e8ee;
   padding: 30px;
+  border-radius: 4px;
 }
 
 .books {
@@ -27,7 +28,7 @@
 }
 
 .books > .booktitle {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   font-family: 'RobotoSlab', sans-serif;
   overflow: hidden;
@@ -77,6 +78,23 @@
 
 .line {
   height: 70px;
-  background-color: grey;
+  background-color: #e8e8e8;
   width: 2px;
+}
+
+.update-secInner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.circle {
+  height: 70px;
+  width: 70px;
+  border-top: 5px solid #379cf6;
+  border-right: 5px solid #379cf6;
+  border-bottom: 5px solid #379cf6;
+  border-left: 5px solid rgb(197, 197, 197);
+  border-radius: 50%;
+  transform: rotate(20deg);
 }
