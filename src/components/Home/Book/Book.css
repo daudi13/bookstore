@@ -1,6 +1,6 @@
 .bookItem {
   width: 100%;
-  border: 2px solid black;
+  border: 1px solid #e8e8ee;
   padding: 10px;
 }
 
@@ -21,10 +21,12 @@
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 10px;
+  font-family: 'RobotoSlab', sans-serif;
 }
 
 .books > .bookAuthor {
   color: rgb(0, 110, 255);
+  font-family: 'RobotoSlab', sans-serif;
 }
 
 .actionButtons {
@@ -34,9 +36,12 @@
 
 .actionButtons > li > button {
   padding: 5px 10px 0 0;
+  font-family: 'RobotoSlab', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
   background-color: #fff;
   border: none;
-  color: aqua;
+  color: #4386bf;
   text-align: left;
 }
 
