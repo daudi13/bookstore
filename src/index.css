@@ -25,3 +25,13 @@ ul li {
 button{
   border-radius: 3px;
 }
+
+.btn-category {
+  padding: 0.575rem 1rem;
+  text-align: center;
+  width: 300px;
+  background-color: rgb(40, 148, 236);
+  color: #fff;
+  border: none;
+  margin-bottom: 3rem;
+}
