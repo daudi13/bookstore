@@ -34,6 +34,7 @@ nav {
 
 .userIcon {
   margin-left: auto ;
+  width: 30px;
 }
 
 a {
@@ -56,10 +57,3 @@ hr {
   color: #e8e8e8;
 }
 
-.userIcon {
-  height: 30px;
-  width: 30px;
-  background-color: aquamarine;
-  border: 1px solid black;
-  border-radius: 50%;
-}
