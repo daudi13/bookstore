@@ -21,3 +21,7 @@ body {
 ul li {
   list-style: none;
 }
+
+button{
+  border-radius: 3px;
+}
