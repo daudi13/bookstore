@@ -17,7 +17,7 @@ const Book = ({ book }) => {
         <li className="bookDetails">
           <ul className="books">
             <li className="genre">{book.category}</li>
-            <li className="booktitle">{book.title}</li>
+            <li className="booktitle" title={book.title}>{book.title}</li>
             <li className="bookAuthor">{book.author}</li>
           </ul>
           <ul className="actionButtons">
