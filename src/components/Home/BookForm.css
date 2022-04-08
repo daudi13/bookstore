@@ -21,7 +21,8 @@ form > h3 {
   color: #888;
 }
 
-.input, .category {
+.input,
+.category {
   border: 1px solid #e8e8e8;
   margin-right: 2rem;
 }
