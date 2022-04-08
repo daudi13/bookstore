@@ -5,7 +5,7 @@ import './Book.css';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../../redux/books/books';
 
-const Book = ({ book }) => {
+const Book = ({ book, chapter, progress }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => (
@@ -31,9 +31,9 @@ const Book = ({ book }) => {
         <li className="update-sec">
           <ul>
             <li className="update-secInner">
-              <span className="circle" />
+              <div className="circle" />
               <ul className="percentage">
-                <li className="number">64%</li>
+                <li className="number">{`${chapter}%`}</li>
                 <li>Complete</li>
               </ul>
             </li>
@@ -46,7 +46,7 @@ const Book = ({ book }) => {
             <li>
               Chapter
               {' '}
-              <span className="chapter">22</span>
+              <span className="chapter">{progress}</span>
             </li>
             <li><button type="button">UPDATE PROGRESS</button></li>
           </ul>
