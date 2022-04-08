@@ -11,7 +11,7 @@ const Navbar = () => (
           <li><NavLink className="link-btn" to="/">Home</NavLink></li>
           <li><NavLink className="link-btn" to="Categories">Category</NavLink></li>
         </ul>
-        <div className="userIcon">......</div>
+        <img src="./images/login.png" alt="user icon" className="userIcon" />
       </nav>
     </div>
   </>
