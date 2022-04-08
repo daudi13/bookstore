@@ -19,6 +19,15 @@ nav {
   font-size: 1.875rem;
   color: #0290ff;
   font-weight: 700;
+  margin-right: 60px;
+}
+
+.link-btn {
+  color: grey;
+}
+
+.active {
+  color: #121212;
 }
 
 .userIcon {
