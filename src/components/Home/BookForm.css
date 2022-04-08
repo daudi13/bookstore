@@ -2,7 +2,7 @@ form {
   max-width: 1550px;
   width: 100%;
   padding: 2.5rem;
-  border-top:1.5px solid #e8e8e8;
+  border-top: 1.5px solid #e8e8e8;
   position: fixed;
   bottom: 0;
   z-index: 10;
@@ -18,7 +18,7 @@ form > .form-container {
 
 form > h3 {
   margin-bottom: 10px;
-  color: #888888;
+  color: #888;
 }
 
 .input {
@@ -42,5 +42,3 @@ form > h3 {
   color: #fff;
   border: none;
 }
-
-
