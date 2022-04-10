@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './Book.css';
 import { useDispatch } from 'react-redux';
 import { removeBook } from '../../../redux/books/books';
+import Progress from '../../progress/progress';
 
 const Book = ({ book, chapter, progress }) => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const Book = ({ book, chapter, progress }) => {
         <li className="update-sec">
           <ul>
             <li className="update-secInner">
-              <div className="circle" />
+              <Progress chapter={chapter} />
               <ul className="percentage">
                 <li className="number">{`${chapter}%`}</li>
                 <li>Complete</li>

@@ -1,0 +1,33 @@
+.percentage {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+
+.percentage svg {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+
+svg circle {
+  width: 70px;
+  height: 70px;
+  fill: none;
+  stroke-width: 5px;
+  stroke: aqua;
+  transform: translate(5px, 5px);
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+}
+
+svg circle:nth-child(1) {
+  stroke-dashoffset: 0;
+  stroke: grey;
+}
+
+/* .percent {
+  stroke-dashoffset: calc(200 - (200 * 40)/100);
+  stroke: aqua;
+}   */
+
