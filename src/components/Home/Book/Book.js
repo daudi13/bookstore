@@ -12,6 +12,7 @@ const Book = ({ book, chapter, progress }) => {
   const handleDelete = () => (
     dispatch(removeBook(book.item_id))
   );
+
   return (
     <li className="bookItem">
       <ul className="bookItems-secs">

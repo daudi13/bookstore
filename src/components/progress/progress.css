@@ -26,8 +26,3 @@ svg circle:nth-child(1) {
   stroke: grey;
 }
 
-/* .percent {
-  stroke-dashoffset: calc(200 - (200 * 40)/100);
-  stroke: aqua;
-}   */
-
