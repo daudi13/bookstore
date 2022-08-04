@@ -8,6 +8,8 @@ import Navbar from './components/Navbar/Navbar';
 import reportWebVitals from './reportWebVitals';
 import Categories from './components/Categories/Categories';
 import store from './redux/configureStore';
+import LoginPage from './components/LoginPage/LoginPage';
+import SignUpPage from './components/SignUpPage/SignUpPage';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -17,6 +19,8 @@ ReactDOM.render(
         <Routes>
           <Route path="/" element={<App />} />
           <Route path="/Categories" element={<Categories />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
         </Routes>
       </BrowserRouter>
     </Provider>
