@@ -35,3 +35,60 @@ button {
   border: none;
   margin-bottom: 3rem;
 }
+
+.auth-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-image: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80");
+  background-size: cover;
+}
+
+.auth-form {
+  color: #fff;
+  border-radius: 20px;
+  padding: 2em;
+  background-color: rgba(105, 104, 104, 0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 450px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+label {
+  width: 400px;
+}
+
+.form-control {
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-control:focus {
+  outline: none;
+}
+
+.btn-primary {
+  width: 240px;
+  background-color: rgb(40, 148, 236);
+  color: #fff;
+  border: none;
+  padding: 0.575rem 1rem;
+  text-align: center;
+  border-radius: 3px;
+  margin-bottom: 3rem;
+}
