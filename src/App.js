@@ -1,8 +1,8 @@
 import React from 'react';
-import BookContainer from './components/Home/BookContainer';
+import LoginPage from './components/LoginPage/LoginPage';
 
 const App = () => (
-  <BookContainer />
+  <LoginPage />
 );
 
 export default App;
