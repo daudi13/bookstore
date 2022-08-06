@@ -1,4 +1,4 @@
-const requestLogin = async (email, password) => {
+const requestLogin = async (body) => {
   await fetch('http://localhost:3001/users/sign_in', {
     method: 'POST',
     headers: {
@@ -6,15 +6,15 @@ const requestLogin = async (email, password) => {
     },
     body: JSON.stringify({
       user: {
-        email,
-        password,
+        email: body.email,
+        password: body.password,
       },
     }),
   })
     .then((res) => {
       if (res.ok) {
-        console.log(res.headers.get('Authorization'));
-        localStorage.setItem('token', res.headers.get('Authorization'));
+        console.log(res.headers.get('Authorization').split(' ')[1]);
+        localStorage.setItem('token', res.headers.get('Authorization').split(' ')[1]);
         return res.json();
       }
       throw new Error(res);
