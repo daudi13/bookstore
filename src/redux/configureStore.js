@@ -1,15 +1,8 @@
-import { combineReducers, createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
-import categoriesReducer from './categories/categories';
-import reducer from './books/books';
+import { configureStore } from '@reduxjs/toolkit';
+import userReducer from './user/userSlice';
 
-const root = combineReducers(
-  {
-    categoriesReducer,
-    reducer,
+export const store = configureStore({
+  reducer: {
+    user: userReducer,
   },
-);
-
-const store = createStore(root, applyMiddleware(thunk));
-store.dispatch(reducer);
-export default store;
+});
