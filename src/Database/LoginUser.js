@@ -1,5 +1,5 @@
 const requestLogin = async (body) => {
-  await fetch('http://localhost:3001/users/sign_in', {
+  const res = await fetch('http://localhost:3001/users/sign_in', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -10,16 +10,17 @@ const requestLogin = async (body) => {
         password: body.password,
       },
     }),
-  })
-    .then((res) => {
-      if (res.ok) {
-        localStorage.setItem('token', res.headers.get('Authorization').split(' ')[1]);
-        return res.json();
-      }
-      throw new Error(res);
-    })
-    .then((json) => json)
-    .catch((error) => error);
+  });
+  try {
+    if (res.ok) {
+      localStorage.setItem('token', res.headers.get('Authorization').split(' ')[1]);
+      console.log(res.headers.get('Authorization').split(' ')[1]);
+      const data = await res.json();
+      return data;
+    }
+  } catch (error) {
+    (err) => console.error(err);
+  }
 };
 
 export default requestLogin;
