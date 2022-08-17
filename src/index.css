@@ -92,3 +92,8 @@ label {
   border-radius: 3px;
   margin-bottom: 3rem;
 }
+
+.errMsg {
+  color: red;
+  font-size: 12px;
+}
