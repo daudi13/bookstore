@@ -1,4 +1,5 @@
 const requestLogin = async (body) => {
+  console.log(body.email);
   await fetch('http://localhost:3001/users/sign_in', {
     method: 'POST',
     headers: {

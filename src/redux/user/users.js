@@ -12,21 +12,21 @@ const intialState = {
   loading: false,
   error: '',
   user: {},
-}
+};
 
 export const addLoginRequest = () => ({
   type: ADD_LOGIN_REQUEST,
-})
+});
 
 export const addLoginSuccess = (user) => ({
   type: ADD_LOGIN_SUCCESS,
   payload: user,
-})
+});
 
 export const addLoginFail = (error) => ({
   type: ADD_LOGIN_FAIL,
   payload: error,
-})
+});
 
 export function addLogin(user) {
   return (dispatch) => {
@@ -42,6 +42,6 @@ export function addLogin(user) {
       })
       .catch((error) => {
         dispatch(addLoginFail(error.message));
-      })
-  }
+      });
+  };
 }
