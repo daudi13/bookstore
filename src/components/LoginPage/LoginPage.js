@@ -13,8 +13,8 @@ const LoginPage = () => {
   };
 
   return (
-    <div className="auth-container" onSubmit={handleSubmit(onSubmit)}>
-      <form className="auth-form">
+    <div className="auth-container">
+      <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
         <h3>Sign in</h3>
         <div className="group">
           <label htmlFor="email">Email</label>
@@ -42,7 +42,7 @@ const LoginPage = () => {
         <p className="forgot-password text-right">
           create an account?
           {' '}
-          <a href="/sign-up">sign up</a>
+          <a href="sign-up">sign up</a>
         </p>
       </form>
     </div>
