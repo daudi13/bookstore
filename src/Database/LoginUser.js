@@ -1,5 +1,4 @@
 const requestLogin = async (body) => {
-  console.log(body.email);
   await fetch('http://localhost:3001/users/sign_in', {
     method: 'POST',
     headers: {
@@ -14,14 +13,13 @@ const requestLogin = async (body) => {
   })
     .then((res) => {
       if (res.ok) {
-        console.log(res.headers.get('Authorization').split(' ')[1]);
         localStorage.setItem('token', res.headers.get('Authorization').split(' ')[1]);
         return res.json();
       }
       throw new Error(res);
     })
-    .then((json) => console.dir(json))
-    .catch((error) => console.error(error));
+    .then((json) => json)
+    .catch((error) => error);
 };
 
 export default requestLogin;
