@@ -19,7 +19,7 @@ const requestLogin = async (body) => {
       return data;
     }
   } catch (error) {
-    (err) => console.error(err);
+    (err) => err;
   }
 };
 
