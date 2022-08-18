@@ -7,8 +7,10 @@ import signUp from '../../Database/SignUp';
 const SignUpPage = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = async (data) => {
-    console.log(data);
-    signUp(data);
+    const newUserData = await signUp(data);
+    if (newUserData === undefined) {
+      
+    }
   };
   return (
     <div className="auth-container">
@@ -38,7 +40,7 @@ const SignUpPage = () => {
             type="password"
             className="form-control"
             id="password_confirmation"
-            {...register('password', { required: true, minLength: 6 })}
+            {...register('password_confirmation', { required: true, minLength: 6 })}
           />
         </div>
         <div className="submit button">
