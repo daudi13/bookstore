@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
 import requestLogin from '../../Database/LoginUser';
 import { logUserin } from '../../redux/user/userSlice';
 
@@ -10,15 +11,20 @@ const LoginPage = () => {
   const [errMsg, setErrMsg] = useState('');
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
+  const { state } = useLocation();
+  const navigate = useNavigate();
 
   const onSubmit = async (data) => {
     const userData = await requestLogin(data);
     if (userData === undefined) {
       setErrMsg('Wrong Email or password');
+    } else {
+      dispatch(logUserin(userData));
+      navigate(state?.path || '/Categories');
     }
-    dispatch(logUserin(userData));
-    console.log(userData.message);
   };
+
+  console.log(logUserin.state);
 
   return (
     <div className="auth-container">
