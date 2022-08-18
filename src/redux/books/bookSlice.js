@@ -1,4 +1,10 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { buildQueries } from '@testing-library/react';
+
+const initialState = {
+  books: [],
+  isLoading: false,
+}
 
 export const postBook = createAsyncThunk('books/postbooks', async (body, user_id) => {
   await fetch(`http://localhost:3001/users/${user_id}/books`, {
@@ -37,7 +43,7 @@ export const deleteBook = createAsyncThunk('books/deleteBook', async (user_id) =
 
 export const updateBook = createAsyncThunk('books/updateBook', async (body, user_id) => {
   const res = await fetch(`http://localhost:3001/users/${user_id}/books`, {
-    method: 'PUTS',
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     },
@@ -56,3 +62,59 @@ export const updateBook = createAsyncThunk('books/updateBook', async (body, user
   const data = await res.json()
   return data
 })
+
+export const booksSlice = createSlice({
+  name: 'books',
+  initialState, 
+  reducers: {
+    setBooks: (state, action) => {
+      state.books = action.payload
+    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(postBook.pending, (state) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = true;
+    });
+    builder.addCase(postBook.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = false;
+      // eslint-disable-next-line no-param-reassign
+      state.books = action.payload
+    });
+    builder.addCase(deleteBook.pending, (state) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = true;
+    });
+    builder.addCase(deleteBook.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = false;
+      // eslint-disable-next-line no-param-reassign
+      state.books = state.books.filter((book) => book.id !== action.payload);
+    });
+    builder.addCase(getBooks.pending, (state) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = true;
+    });
+    builder.addCase(getBooks.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = false;
+      // eslint-disable-next-line no-param-reassign
+      state.books = action.payload;
+    });
+    builder.addCase(updateBook.pending, (state) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = true;
+    });
+    builder.addCase(updateBook.fulfilled, (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.isLoading = false;
+      // eslint-disable-next-line no-param-reassign
+      state.books = action.payload;
+    });
+  }
+})
+
+export const { setBooks } = booksSlice.actions;
+
+export default booksSlice.reducer;
