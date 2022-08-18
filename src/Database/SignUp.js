@@ -8,6 +8,7 @@ const signUp = async (body) => {
       user: {
         email: body.email,
         password: body.password,
+        password_confirmation: body.password_confirmation,
       },
     }),
   });
