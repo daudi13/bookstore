@@ -1,20 +1,35 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
+import { useNavigate, useLocation } from 'react-router-dom';
 import signUp from '../../Database/SignUp';
+import { logUserin } from '../../redux/user/userSlice';
 
 const SignUpPage = () => {
+  const [errMsg, setErrMsg] = useState('');
   const { register, handleSubmit } = useForm();
+  const { state } = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
   const onSubmit = async (data) => {
     const newUserData = await signUp(data);
-    if (newUserData === undefined) {
-      
+    if (data.password !== data.password_confirmation) {
+      setErrMsg('Your passwords do not match');
+    } else if (newUserData === undefined) {
+      setErrMsg('User already exist use another email');
+    } else {
+      dispatch(logUserin(newUserData));
+      navigate(state?.path || '/Categories');
     }
   };
   return (
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
+        <p className={errMsg ? 'errMsg' : 'offscreen'} aria-live="assertive">
+          {errMsg}
+        </p>
         <h3>Sign up</h3>
         <div className="group">
           <label htmlFor="email">Email</label>
