@@ -11,13 +11,14 @@ import {
   REGISTER,
 } from 'redux-persist';
 import userReducer from './user/userSlice';
+import booksReducer from './books/bookSlice';
 
 const persistConfig = {
   key: 'counter',
   storage,
 };
 
-const reducers = combineReducers({ user: userReducer });
+const reducers = combineReducers({ user: userReducer, books: booksReducer });
 
 const persistedReducer = persistReducer(persistConfig, reducers);
 

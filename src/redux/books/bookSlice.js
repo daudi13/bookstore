@@ -1,5 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { buildQueries } from '@testing-library/react';
 
 const initialState = {
   books: [],
