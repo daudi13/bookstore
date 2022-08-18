@@ -16,3 +16,10 @@ export const postBooks = async (body, user_id) => {
     }),
   });
 };
+
+export const getBooks = async (user_id) => {
+  const res = await fetch(`http://localhost:3001/users/${user_id}/books`)
+  const data = await res.json();
+  return data
+}
+
