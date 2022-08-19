@@ -3,14 +3,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../../../redux/books/books';
+import { deleteBook } from '../../../redux/books/bookSlice';
 import Progress from '../../progress/progress';
 
 const Book = ({ book, chapter, progress }) => {
   const dispatch = useDispatch();
 
   const handleDelete = () => (
-    dispatch(removeBook(book.item_id))
+    dispatch(deleteBook(book.id))
   );
 
   return (
