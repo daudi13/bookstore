@@ -22,9 +22,9 @@ ReactDOM.render(
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path="/" element={<App />} />
+            <Route path="/App" element={<App />} />
             <Route path="/Categories" element={<Categories />} />
-            <Route path="login" element={<LoginPage />} />
+            <Route path="/" element={<LoginPage />} />
             <Route path="sign-up" element={<SignUpPage />} />
           </Routes>
         </BrowserRouter>

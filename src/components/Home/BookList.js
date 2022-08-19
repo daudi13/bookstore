@@ -1,21 +1,21 @@
 /* eslint-disable no-unused-expressions */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBooks } from '../../redux/books/books';
-import Book from './Book/Book';
+import { getBooks } from '../../redux/books/bookSlice';
 import './BookList.css';
+import Book from './Book/Book';
 
 const BookList = () => {
-  const books = useSelector((store) => store.reducer);
+  const books = useSelector((store) => store.book);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getBooks());
+    dispatch(getBooks(1));
   }, []);
 
-  const bookList = books.bookArr === undefined || Object.entries(books.bookArr).map((element) => ({
-    item_id: element[0], ...element[1][0],
-  }));
+  const bookList = books.books.data;
+
+  console.log(bookList);
 
   return (
     <ul className="booklist-box">

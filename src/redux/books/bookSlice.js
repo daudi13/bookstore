@@ -67,6 +67,7 @@ export const booksSlice = createSlice({
   initialState,
   reducers: {
     setBooks: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
       state.books = action.payload;
     },
   },

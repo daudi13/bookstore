@@ -1,47 +1,36 @@
-import React, { useState } from 'react';
+/* eslint-disable react/jsx-props-no-spreading */
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import uuid from 'react-uuid';
-import { addbook } from '../../redux/books/books';
+import { postBook } from '../../redux/books/bookSlice';
 import './BookForm.css';
 
 const BookForm = () => {
-  const [book, setBook] = useState({
-    id: '',
-    title: '',
-    author: '',
-    category: '',
-  });
+  const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   dispatch(postBook(book));
+  //   document.querySelector('.one').value = '';
+  //   document.querySelector('.two').value = '';
+  // };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setBook((prevbook) => ({
-      ...prevbook,
-      id: uuid(),
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(addbook(book));
+  const onSubmit = async (data, userId) => {
+    dispatch(postBook(data, userId));
     document.querySelector('.one').value = '';
     document.querySelector('.two').value = '';
   };
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <h3>Add New Books</h3>
       <div className="form-container">
         <label htmlFor="book-title">
           <input
             type="text"
             htmlFor="book-title"
-            placeholder="book title"
             className="input one"
-            name="title"
-            value={book.title}
-            onChange={handleChange}
+            {...register('title', { required: true, placeholder: 'Add book title', minLength: 2 })}
           />
         </label>
         <label htmlFor="book-author">
@@ -50,20 +39,16 @@ const BookForm = () => {
             htmlFor="book-book-author"
             placeholder="book authour"
             className="input two"
-            name="author"
-            value={book.author}
-            onChange={handleChange}
+            {...register('author', { required: true, placeholder: 'book author', minLength: 2 })}
           />
         </label>
-        <label htmlFor="categories">
+        <label htmlFor="genre">
           <select
-            id="books categories"
+            id="books genre"
             className="category"
-            name="category"
-            value={book.category}
-            onChange={handleChange}
+            {...register('genre', { required: true, placeholder: 'add book genre' })}
           >
-            <option>Categories</option>
+            <option>genre</option>
             <option>Fiction</option>
             <option>Non-fiction</option>
             <option>Self-Help</option>
