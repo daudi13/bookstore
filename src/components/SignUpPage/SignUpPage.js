@@ -21,7 +21,7 @@ const SignUpPage = () => {
       setErrMsg('User already exist use another email');
     } else {
       dispatch(logUserin(newUserData));
-      navigate(state?.path || '/Categories');
+      navigate(state?.path || '/App');
     }
   };
   return (
