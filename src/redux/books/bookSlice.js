@@ -3,10 +3,10 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 const initialState = {
   books: [],
   isLoading: false,
-}
+};
 
-export const postBook = createAsyncThunk('books/postbooks', async (body, user_id) => {
-  await fetch(`http://localhost:3001/users/${user_id}/books`, {
+export const postBook = createAsyncThunk('books/postbooks', async (body, userId) => {
+  await fetch(`http://localhost:3001/users/${userId}/books`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -16,7 +16,7 @@ export const postBook = createAsyncThunk('books/postbooks', async (body, user_id
         title: body.title,
         author: body.author,
         genre: body.genre,
-        user_id,
+        userId,
         current_chapter: body.current_chapter,
         total_chapters: body.total_chapters,
       },
@@ -24,50 +24,50 @@ export const postBook = createAsyncThunk('books/postbooks', async (body, user_id
   });
 });
 
-export const getBooks = createAsyncThunk('books/getBooks', async (user_id) => {
-  const res = await fetch(`http://localhost:3001/users/${user_id}/books`)
+export const getBooks = createAsyncThunk('books/getBooks', async (userId) => {
+  const res = await fetch(`http://localhost:3001/users/${userId}/books`);
   const data = await res.json();
-  return data
-})
+  return data;
+});
 
-export const deleteBook = createAsyncThunk('books/deleteBook', async (user_id) => {
-  const res = await fetch(`http://localhost:3001/users/${user_id}/books`, {
+export const deleteBook = createAsyncThunk('books/deleteBook', async (userId) => {
+  const res = await fetch(`http://localhost:3001/users/${userId}/books`, {
     method: 'DELETE',
-    header: { 'Content-Type': 'application/json' }
-  })
+    header: { 'Content-Type': 'application/json' },
+  });
 
   const data = res.json();
-  return Number(data) //get to the bottom of this
-})
+  return Number(data); // get to the bottom of this
+});
 
-export const updateBook = createAsyncThunk('books/updateBook', async (body, user_id) => {
-  const res = await fetch(`http://localhost:3001/users/${user_id}/books`, {
+export const updateBook = createAsyncThunk('books/updateBook', async (body, userId) => {
+  const res = await fetch(`http://localhost:3001/users/${userId}/books`, {
     method: 'PUT',
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       book: {
         title: body.title,
         author: body.author,
         genre: body.genre,
-        user_id,
+        userId,
         current_chapter: body.current_chapter,
         total_chapters: body.total_chapters,
       },
-    })
-  })
+    }),
+  });
 
-  const data = await res.json()
-  return data
-})
+  const data = await res.json();
+  return data;
+});
 
 export const booksSlice = createSlice({
   name: 'books',
-  initialState, 
+  initialState,
   reducers: {
     setBooks: (state, action) => {
-      state.books = action.payload
+      state.books = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -79,7 +79,7 @@ export const booksSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.isLoading = false;
       // eslint-disable-next-line no-param-reassign
-      state.books = action.payload
+      state.books = action.payload;
     });
     builder.addCase(deleteBook.pending, (state) => {
       // eslint-disable-next-line no-param-reassign
@@ -111,8 +111,8 @@ export const booksSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.books = action.payload;
     });
-  }
-})
+  },
+});
 
 export const { setBooks } = booksSlice.actions;
 
