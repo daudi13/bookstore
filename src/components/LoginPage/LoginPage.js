@@ -20,7 +20,7 @@ const LoginPage = () => {
       setErrMsg('Wrong Email or password');
     } else {
       dispatch(logUserin(userData));
-      navigate(state?.path || '/Categories');
+      navigate(state?.path || '/App');
     }
   };
 
