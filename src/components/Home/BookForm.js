@@ -1,26 +1,43 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { current } from '@reduxjs/toolkit';
-import React from 'react';
-import { useForm } from 'react-hook-form';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { decodeToken } from 'react-jwt';
+import { useDispatch } from 'react-redux';
 import { postBook } from '../../redux/books/bookSlice';
 import './BookForm.css';
 
 const BookForm = () => {
-  const { register, handleSubmit } = useForm();
-  const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.user.user.user);
-  const { id } = currentUser;
+  const [title, setTitle] = useState();
+  const [author, setAuthor] = useState();
+  const [genre, setGenre] = useState();
+  const [totalChapters, setTotalChapters] = useState();
+  const [currentChapter, setCurrentChapter] = useState();
 
-  
-  const onSubmit = async (data) => {
-    const meta = {id, data};
+  const myToken = localStorage.getItem('token');
+  const dispatch = useDispatch();
+  const decodedToken = decodeToken(myToken);
+  const id = +(decodedToken.sub);
+
+  // const onSubmit = async (data) => {
+  //   const meta = { id, data };
+  //   dispatch(postBook(meta));
+  //   document.querySelectorAll('input').value = '';
+  // };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = {
+      title,
+      author,
+      genre,
+      current_chapter: currentChapter,
+      total_chapters: totalChapters,
+    };
+    const meta = { data, id };
     dispatch(postBook(meta));
-    document.querySelectorAll('input').value = '';
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="form">
+    <form onSubmit={handleSubmit} className="form">
       <h3>Add New Books</h3>
       <div className="form-container">
         <label htmlFor="book-title">
@@ -29,7 +46,9 @@ const BookForm = () => {
             htmlFor="book-title"
             placeholder="book title"
             className="input"
-            {...register('title', { required: true, minLength: 2 })}
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
+            required
           />
         </label>
         <label htmlFor="book-author">
@@ -38,14 +57,18 @@ const BookForm = () => {
             htmlFor="book-book-author"
             placeholder="book authour"
             className="input"
-            {...register('author', { required: true, placeholder: 'book author', minLength: 2 })}
+            onChange={(e) => setAuthor(e.target.value)}
+            value={author}
+            required
           />
         </label>
         <label htmlFor="genre">
           <select
             id="books genre"
             className="category"
-            {...register('genre', { required: true, placeholder: 'add book genre' })}
+            onChange={(e) => setGenre(e.target.value)}
+            value={genre}
+            required
           >
             <option>genre</option>
             <option>Fiction</option>
@@ -60,7 +83,9 @@ const BookForm = () => {
             htmlFor="total-chaper"
             placeholder="Enter total chapters"
             className="input"
-            {...register('total_chapters', { required: true, placeholder: 'book author', minLength: 2 })}
+            value={totalChapters}
+            onChange={(e) => setTotalChapters(e.target.value)}
+            required
           />
         </label>
         <label htmlFor="current_chapter">
@@ -69,7 +94,9 @@ const BookForm = () => {
             htmlFor="current_chapter"
             placeholder="Enter current chapter"
             className="input"
-            {...register('current_chapter', { required: true, placeholder: 'book author', minLength: 2 })}
+            value={currentChapter}
+            onChange={(e) => setCurrentChapter(e.target.value)}
+            required
           />
         </label>
         <button type="submit" onClick={handleSubmit}>Add Book</button>
