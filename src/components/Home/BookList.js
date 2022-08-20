@@ -1,21 +1,38 @@
 /* eslint-disable no-unused-expressions */
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { decodeToken } from 'react-jwt';
 import { getBooks } from '../../redux/books/bookSlice';
 import './BookList.css';
 import Book from './Book/Book';
 
 const BookList = () => {
-  const books = useSelector((store) => store.book);
+  const myToken = localStorage.getItem('token');
   const dispatch = useDispatch();
+  const books = useSelector((store) => store.books.books);
+  const decodedToken = decodeToken(myToken);
+  const currentUserId = +(decodedToken.sub);
+  console.log(currentUserId);
 
   useEffect(() => {
-    dispatch(getBooks(1));
+    dispatch(getBooks(currentUserId));
   }, []);
+  // const bookFunc = async (books) => {
+  //   if (!books.isLoading && books.books) {
+  //     const booksArr =  books.books;
+  //     return booksArr;
+  //   } if (books.isLoading) {
+  //     return '...Books Loading';
+  //   } if (!books.isLoading) {
+  //     return 'No Books to display';
+  //   }
+  // };
 
-  const bookList = books.books.data;
+  // console.log(bookFunc(books))
 
-  console.log(bookList);
+  const bookList = books === undefined ? window.location.reload(true) : books;
+
+  console.log(books);
 
   return (
     <ul className="booklist-box">
@@ -25,7 +42,7 @@ const BookList = () => {
           const chapter = Math.floor((progress / 30) * 100);
           return (
             <Book
-              key={book.item_id}
+              key={book.id}
               book={book}
               chapter={chapter}
               progress={progress}
