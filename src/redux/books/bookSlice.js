@@ -5,7 +5,7 @@ const initialState = {
   isLoading: false,
 };
 
-export const postBook = createAsyncThunk('books/postbooks', async ({data, id}) => {
+export const postBook = createAsyncThunk('books/postbooks', async ({ data, id }) => {
   await fetch(`http://localhost:3001/users/${id}/books`, {
     method: 'POST',
     headers: {
