@@ -32,7 +32,7 @@ const BookList = () => {
 
   const bookList = books === undefined ? window.location.reload(true) : books;
 
-  console.log(books);
+  const bookList = books === undefined ? dispatch(getBooks(currentUserId)) : books;
 
   return (
     <ul className="booklist-box">
