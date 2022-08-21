@@ -91,7 +91,7 @@ export const booksSlice = createSlice({
       // eslint-disable-next-line no-param-reassign
       state.isLoading = false;
       // eslint-disable-next-line no-param-reassign
-      state.books = state.books.filter((book) => book.id !== action.payload);
+      state.books = action.payload;
     });
     builder.addCase(getBooks.pending, (state) => {
       // eslint-disable-next-line no-param-reassign
