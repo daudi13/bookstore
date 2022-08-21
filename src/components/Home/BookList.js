@@ -12,7 +12,6 @@ const BookList = () => {
   const books = useSelector((store) => store.books.books);
   const decodedToken = decodeToken(myToken);
   const currentUserId = +(decodedToken.sub);
-  console.log(currentUserId);
 
   useEffect(() => {
     dispatch(getBooks(currentUserId));
