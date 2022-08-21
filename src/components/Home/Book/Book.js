@@ -25,7 +25,7 @@ const Book = ({ book, chapter, progress }) => {
           <ul className="actionButtons">
             <li><button type="button">Comments</button></li>
             <hr />
-            <li><button type="button" onClick={handleDelete}>Remove</button></li>
+            <li><button type="button" onClick={deleteBook(meta)}>Remove</button></li>
             <hr />
             <li><button type="button">Edit</button></li>
           </ul>
