@@ -2,10 +2,11 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import requestLogin from '../../Database/LoginUser';
 import { logUserin } from '../../redux/user/userSlice';
+import Navbar from '../Navbar/Navbar';
 
 const LoginPage = () => {
   const [errMsg, setErrMsg] = useState('');
@@ -13,6 +14,9 @@ const LoginPage = () => {
   const { register, handleSubmit } = useForm();
   const { state } = useLocation();
   const navigate = useNavigate();
+  const userState = useSelector((store) => store.user.loggedIn)
+
+  console.log(userState)
 
   const onSubmit = async (data) => {
     const userData = await requestLogin(data);
@@ -24,9 +28,10 @@ const LoginPage = () => {
     }
   };
 
-  console.log(logUserin.state);
 
   return (
+    <>
+      <Navbar logged={userState} />
     <div className="auth-container">
       <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
         <p className={errMsg ? 'errMsg' : 'offscreen'} aria-live="assertive">
@@ -63,6 +68,7 @@ const LoginPage = () => {
         </p>
       </form>
     </div>
+    </>
   );
 };
 
