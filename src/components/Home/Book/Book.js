@@ -2,16 +2,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
+import { useDispatch } from 'react-redux';
 import { decodeToken } from 'react-jwt';
 import { deleteBook } from '../../../redux/books/bookSlice';
 import Progress from '../../progress/progress';
 
 const Book = ({ book, chapter, progress }) => {
   const myToken = localStorage.getItem('token');
+  const dispatch = useDispatch();
   const decodedToken = decodeToken(myToken);
   const userId = +(decodedToken.sub);
   const bookId = book.id;
   const meta = { userId, bookId };
+
+  const handleDelete = () => (
+    dispatch(deleteBook(meta))
+  );
 
   return (
     <li className="bookItem">
@@ -25,7 +31,7 @@ const Book = ({ book, chapter, progress }) => {
           <ul className="actionButtons">
             <li><button type="button">Comments</button></li>
             <hr />
-            <li><button type="button" onClick={deleteBook(meta)}>Remove</button></li>
+            <li><button type="button" onClick={handleDelete}>Remove</button></li>
             <hr />
             <li><button type="button">Edit</button></li>
           </ul>
