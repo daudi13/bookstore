@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import signUp from '../../Database/SignUp';
 import { logUserin } from '../../redux/user/userSlice';
 
@@ -66,7 +66,7 @@ const SignUpPage = () => {
         <p className="forgot-password text-right">
           have an account?
           {' '}
-          <a href="/login">login</a>
+          <Link to={{ pathname: '/' }}>login</Link>
         </p>
       </form>
     </div>
