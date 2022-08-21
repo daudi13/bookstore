@@ -17,20 +17,6 @@ const BookList = () => {
   useEffect(() => {
     dispatch(getBooks(currentUserId));
   }, []);
-  // const bookFunc = async (books) => {
-  //   if (!books.isLoading && books.books) {
-  //     const booksArr =  books.books;
-  //     return booksArr;
-  //   } if (books.isLoading) {
-  //     return '...Books Loading';
-  //   } if (!books.isLoading) {
-  //     return 'No Books to display';
-  //   }
-  // };
-
-  // console.log(bookFunc(books))
-
-  const bookList = books === undefined ? window.location.reload(true) : books;
 
   const bookList = books === undefined ? dispatch(getBooks(currentUserId)) : books;
 
