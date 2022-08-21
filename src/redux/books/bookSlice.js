@@ -31,8 +31,8 @@ export const getBooks = createAsyncThunk('books/getBooks', async (userId) => {
   return data.data;
 });
 
-export const deleteBook = createAsyncThunk('books/deleteBook', async (userId) => {
-  const res = await fetch(`http://localhost:3001/users/${userId}/books`, {
+export const deleteBook = createAsyncThunk('books/deleteBook', async ({ userId, bookId }) => {
+  await fetch(`http://localhost:3001/users/${userId}/books/${bookId}`, {
     method: 'DELETE',
     header: { 'Content-Type': 'application/json' },
   });
