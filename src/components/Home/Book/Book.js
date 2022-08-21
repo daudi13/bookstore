@@ -7,11 +7,11 @@ import { deleteBook } from '../../../redux/books/bookSlice';
 import Progress from '../../progress/progress';
 
 const Book = ({ book, chapter, progress }) => {
-  const dispatch = useDispatch();
-
-  const handleDelete = () => (
-    dispatch(deleteBook(book.id))
-  );
+  const myToken = localStorage.getItem('token');
+  const decodedToken = decodeToken(myToken);
+  const userId = +(decodedToken.sub);
+  const bookId = book.id;
+  const meta = { userId, bookId };
 
   return (
     <li className="bookItem">
