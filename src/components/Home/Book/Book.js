@@ -2,7 +2,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './Book.css';
-import { useDispatch } from 'react-redux';
+import { decodeToken } from 'react-jwt';
 import { deleteBook } from '../../../redux/books/bookSlice';
 import Progress from '../../progress/progress';
 
