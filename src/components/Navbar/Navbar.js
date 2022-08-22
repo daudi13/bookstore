@@ -14,8 +14,8 @@ const Navbar = ({ logged }) => {
             logged
           && (
           <ul className="nav">
-            <li><NavLink className="link-btn" to="/">Home</NavLink></li>
-            <li><NavLink className="link-btn" to="Categories">Category</NavLink></li>
+            <li><NavLink className="link-btn" to="/App">Home</NavLink></li>
+            <li><NavLink className="link-btn" to="/Categories">Category</NavLink></li>
           </ul>
           )
         }
