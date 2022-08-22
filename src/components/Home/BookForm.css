@@ -1,10 +1,10 @@
 .form {
   max-width: 1550px;
-  width: 100%;
+  width: 70%;
   padding: 2.5rem;
   border-top: 1.5px solid #e8e8e8;
   position: fixed;
-  bottom: 0;
+  top: 30%;
   z-index: 10;
   background-color: #fff;
 }
@@ -12,7 +12,7 @@
 .form > .form-container {
   width: 100%;
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
 }
@@ -20,17 +20,18 @@
 .form > h3 {
   margin-bottom: 10px;
   color: #888;
+  text-align: center;
 }
 
 .input,
 .category {
   border: 1px solid #e8e8e8;
-  margin-right: 2rem;
 }
 
 .input {
   padding: 0.813rem 2.688rem;
-  margin-right: 2rem;
+  width: 100%;
+  margin-bottom: 10px;
 }
 
 .category {
@@ -46,4 +47,14 @@
   background-color: rgb(40, 148, 236);
   color: #fff;
   border: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9;
 }
