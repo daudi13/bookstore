@@ -1,11 +1,12 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { decodeToken } from 'react-jwt';
 import { useDispatch } from 'react-redux';
 import { postBook } from '../../redux/books/bookSlice';
 import './BookForm.css';
 
-const BookForm = () => {
+const BookForm = ({ closeModal }) => {
   const [title, setTitle] = useState();
   const [author, setAuthor] = useState();
   const [genre, setGenre] = useState();
@@ -92,9 +93,13 @@ const BookForm = () => {
           <button type="submit" onClick={handleSubmit}>Add Book</button>
         </div>
       </form>
-      <div className="overlay" />
+      <div className="overlay" onClick={() => closeModal(false)} onKeyDown={() => closeModal(false)} role="button" tabIndex={0} aria-label="cancel form" />
     </>
   );
+};
+
+BookForm.propTypes = {
+  closeModal: PropTypes.bool.isRequired,
 };
 
 export default BookForm;
