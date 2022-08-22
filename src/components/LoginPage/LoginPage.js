@@ -14,9 +14,7 @@ const LoginPage = () => {
   const { register, handleSubmit } = useForm();
   const { state } = useLocation();
   const navigate = useNavigate();
-  const userState = useSelector((store) => store.user.loggedIn)
-
-  console.log(userState)
+  const userState = useSelector((store) => store.user.loggedIn);
 
   const onSubmit = async (data) => {
     const userData = await requestLogin(data);
