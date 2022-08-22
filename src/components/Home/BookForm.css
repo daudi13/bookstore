@@ -1,5 +1,5 @@
 .form {
-  max-width: 1550px;
+  max-width: 550px;
   width: 70%;
   padding: 2.5rem;
   border-top: 1.5px solid #e8e8e8;
@@ -7,6 +7,10 @@
   top: 30%;
   z-index: 10;
   background-color: #fff;
+  box-shadow: 8px 11px 11px 0px rgba(0,0,0,0.61);
+-webkit-box-shadow: 8px 11px 11px 0px rgba(0,0,0,0.61);
+-moz-box-shadow: 8px 11px 11px 0px rgba(0,0,0,0.61);
+border-radius: 20px;
 }
 
 .form > .form-container {

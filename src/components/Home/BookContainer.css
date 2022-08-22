@@ -16,6 +16,9 @@
   justify-content: center;
   border-radius: 50%;
   background-color: rgb(40, 148, 236);
+  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.61);
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.61);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.61);
   color: azure;
   cursor: pointer;
   position: fixed;
