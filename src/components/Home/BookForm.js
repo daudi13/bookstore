@@ -17,12 +17,6 @@ const BookForm = () => {
   const decodedToken = decodeToken(myToken);
   const id = +(decodedToken.sub);
 
-  // const onSubmit = async (data) => {
-  //   const meta = { id, data };
-  //   dispatch(postBook(meta));
-  //   document.querySelectorAll('input').value = '';
-  // };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = {
