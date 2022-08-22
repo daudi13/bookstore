@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import './Navbar.css';
 
@@ -24,5 +25,9 @@ const Navbar = ({ logged }) => {
     </>
   );
 };
+
+Navbar.propTypes = {
+  logged: PropTypes.bool.isRequired,
+}
 
 export default Navbar;

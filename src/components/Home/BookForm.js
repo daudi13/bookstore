@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 import PropTypes from 'prop-types';
 import { decodeToken } from 'react-jwt';
 import { useDispatch } from 'react-redux';
@@ -7,33 +8,22 @@ import { postBook } from '../../redux/books/bookSlice';
 import './BookForm.css';
 
 const BookForm = ({ closeModal }) => {
-  const [title, setTitle] = useState();
-  const [author, setAuthor] = useState();
-  const [genre, setGenre] = useState();
-  const [totalChapters, setTotalChapters] = useState();
-  const [currentChapter, setCurrentChapter] = useState();
+  const { handleSubmit, register } = useForm();
 
   const myToken = localStorage.getItem('token');
   const dispatch = useDispatch();
   const decodedToken = decodeToken(myToken);
   const id = +(decodedToken.sub);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const data = {
-      title,
-      author,
-      genre,
-      current_chapter: currentChapter,
-      total_chapters: totalChapters,
-    };
+  const onSubmit = async (data) => {
     const meta = { data, id };
     dispatch(postBook(meta));
+    closeModal(false);
   };
 
   return (
     <>
-      <form onSubmit={handleSubmit} className="form">
+      <form onSubmit={handleSubmit(onSubmit)} className="form">
         <h3>Add New Books</h3>
         <div className="form-container">
           <label htmlFor="book-title">
@@ -42,9 +32,7 @@ const BookForm = ({ closeModal }) => {
               htmlFor="book-title"
               placeholder="book title"
               className="input"
-              onChange={(e) => setTitle(e.target.value)}
-              value={title}
-              required
+              {...register('title', { required: true, minlength: 2 })}
             />
           </label>
           <label htmlFor="book-author">
@@ -53,9 +41,7 @@ const BookForm = ({ closeModal }) => {
               htmlFor="book-book-author"
               placeholder="book authour"
               className="input"
-              onChange={(e) => setAuthor(e.target.value)}
-              value={author}
-              required
+              {...register('author', { required: true, minlength: 2 })}
             />
           </label>
           <label htmlFor="genre">
@@ -63,9 +49,7 @@ const BookForm = ({ closeModal }) => {
               id="books genre"
               placeholder="genre"
               className="input"
-              onChange={(e) => setGenre(e.target.value)}
-              value={genre}
-              required
+              {...register('genre', { required: true, minlength: 2 })}
             />
           </label>
           <label htmlFor="total-chapters">
@@ -74,9 +58,7 @@ const BookForm = ({ closeModal }) => {
               htmlFor="total-chaper"
               placeholder="Enter total chapters"
               className="input"
-              value={totalChapters}
-              onChange={(e) => setTotalChapters(e.target.value)}
-              required
+              {...register('total_chapters', { required: true })}
             />
           </label>
           <label htmlFor="current_chapter">
@@ -85,9 +67,7 @@ const BookForm = ({ closeModal }) => {
               htmlFor="current_chapter"
               placeholder="Enter current chapter"
               className="input"
-              value={currentChapter}
-              onChange={(e) => setCurrentChapter(e.target.value)}
-              required
+              {...register('current_chapter', { required: true })}
             />
           </label>
           <button type="submit" onClick={handleSubmit}>Add Book</button>
