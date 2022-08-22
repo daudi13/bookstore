@@ -15,6 +15,11 @@
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: aqua;
+  background-color: rgb(40, 148, 236);
+  color: azure;
+  cursor: pointer;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   border: none;
 }

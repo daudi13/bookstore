@@ -8,7 +8,7 @@ const BookContainer = () => {
   return (
     <div className="row">
       <BookList />
-      <button type="button" onClick={() => setBookForm(true)} className="addBook">+</button>
+      <button type="button" onClick={() => setBookForm(true)} className="addBook" title="Add Book" aria-label="add book">+</button>
       {
         bookform
         && <BookForm closeModal={setBookForm} />
