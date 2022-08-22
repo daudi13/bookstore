@@ -26,7 +26,6 @@ const LoginPage = () => {
     }
   };
 
-
   return (
     <>
       <Navbar logged={userState} />
