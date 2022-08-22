@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import BookForm from './BookForm';
 import './BookContainer.css';
 import BookList from './BookList';
 
-const BookContainer = () => (
-  <div className="row">
-    <BookList />
+const BookContainer = () => {
+  const [bookform, setBookForm] = useState(false);
+  return (
+    <div className="row">
+      <BookList />
       <button type="button" onClick={() => setBookForm(true)}>Add book</button>
       {
         bookform
@@ -13,5 +15,6 @@ const BookContainer = () => (
       }
     </div>
   );
+};
 
 export default BookContainer;
