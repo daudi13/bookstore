@@ -28,6 +28,6 @@ const Navbar = ({ logged }) => {
 
 Navbar.propTypes = {
   logged: PropTypes.bool.isRequired,
-}
+};
 
 export default Navbar;

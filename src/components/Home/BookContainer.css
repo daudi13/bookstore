@@ -6,3 +6,15 @@
   justify-content: space-between;
   width: 100vw;
 }
+
+.addBook {
+  width: 70px;
+  height: 70px;
+  font-size: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: aqua;
+  border: none;
+}
