@@ -59,9 +59,9 @@ const Book = ({ book, percent }) => {
         <li className="update-sec">
           <ul>
             <li className="update-secInner">
-              <Progress chapter={chapter} />
+              <Progress chapter={percent} />
               <ul className="percentage">
-                <li className="number">{`${chapter}%`}</li>
+                <li className="number">{`${percent}%`}</li>
                 <li>Complete</li>
               </ul>
             </li>
@@ -74,9 +74,9 @@ const Book = ({ book, percent }) => {
             <li>
               Chapter
               {' '}
-              <span className="chapter">{progress}</span>
+              <span className="chapter">{book.current_chapter}</span>
             </li>
-            <li><button type="button">UPDATE PROGRESS</button></li>
+            <li><button type="button" onClick={handleUpdate}>UPDATE PROGRESS</button></li>
           </ul>
         </li>
       </ul>

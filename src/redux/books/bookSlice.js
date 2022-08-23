@@ -37,20 +37,20 @@ export const deleteBook = createAsyncThunk('books/deleteBook', async ({ userId, 
   });
 });
 
-export const updateBook = createAsyncThunk('books/updateBook', async (body, userId) => {
-  const res = await fetch(`http://localhost:3001/users/${userId}/books`, {
-    method: 'PUT',
+export const updateBook = createAsyncThunk('books/updateBook', async ({ body, userId }) => {
+  const res = await fetch(`http://localhost:3001/users/${userId}/books/${body.bookId}`, {
+    method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
       book: {
-        title: body.title,
-        author: body.author,
-        genre: body.genre,
-        userId,
-        current_chapter: body.current_chapter,
-        total_chapters: body.total_chapters,
+      title: body.title,
+      author: body.author,
+      genre: body.genre,
+      userId,
+      current_chapter: body.current_chapter,
+      total_chapters: body.total_chapters,
       },
     }),
   });
