@@ -44,7 +44,7 @@ const Book = ({ book, percent }) => {
       <ul className="bookItems-secs">
         <li className="bookDetails">
           <ul className="books">
-            <li className="genre">{book.category}</li>
+            <li className="genre">{book.genre}</li>
             <li className="booktitle" title={book.title}>{book.title}</li>
             <li className="bookAuthor">{book.author}</li>
           </ul>
