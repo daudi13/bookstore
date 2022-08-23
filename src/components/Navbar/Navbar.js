@@ -1,10 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
 
 const Navbar = ({ logged }) => {
+  const navigate = useNavigate();
+  const { state } = useLocation()
   console.log(logged);
+  const handleLogOut = () => {
+    localStorage.clear();
+    navigate(state?.path || '/');
+
+  };
   return (
     <>
       <div className="navBar">
@@ -13,13 +21,15 @@ const Navbar = ({ logged }) => {
           {
             logged
           && (
-          <ul className="nav">
-            <li><NavLink className="link-btn" to="/App">Home</NavLink></li>
-            <li><NavLink className="link-btn" to="/Categories">Category</NavLink></li>
-          </ul>
+          <>
+            <ul className="nav">
+              <li><NavLink className="link-btn" to="/App">Home</NavLink></li>
+              <li><NavLink className="link-btn" to="/Categories">Category</NavLink></li>
+            </ul>
+            <button className="userIcon" onClick={handleLogOut}>Log Out</button>
+          </>
           )
         }
-          <img src="./images/login.png" alt="user icon" className="userIcon" />
         </nav>
       </div>
     </>
