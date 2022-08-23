@@ -84,11 +84,9 @@ const Book = ({ book, percent }) => {
   );
 };
 
-Book.protoTypes = {
-  title: PropTypes.string.isRequired,
-  author: PropTypes.string.isRequired,
-  genre: PropTypes.string.isRequired,
-  complete: PropTypes.string.isRequired,
+Book.propTypes = {
+  book: PropTypes.objectOf.isRequired,
+  percent: PropTypes.number.isRequired,
 };
 
 export default Book;
