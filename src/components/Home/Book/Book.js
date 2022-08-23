@@ -13,7 +13,25 @@ const Book = ({ book, chapter, progress }) => {
   const decodedToken = decodeToken(myToken);
   const userId = +(decodedToken.sub);
   const bookId = book.id;
-  const meta = { userId, bookId };
+  useEffect(() => {
+    dispatch(getBooks(userId));
+  }, []);
+
+  const handleUpdate = async () => {
+    setCount((count) => count + 1);
+    console.log(count);
+    const body = {
+      title: book.title,
+      author: book.author,
+      genre: book.genre,
+      current_chapter: `${count}`,
+      total_chapters: book.total_chapters,
+      bookId,
+    };
+    const meta = { body, userId };
+    dispatch(updateBook(meta));
+    dispatch(getBooks());
+  };
 
   const handleDelete = () => (
     dispatch(deleteBook(meta))
