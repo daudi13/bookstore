@@ -98,3 +98,51 @@
   align-items: center;
   gap: 20px;
 }
+
+@media screen and (max-width: 425px) {
+  .bookItem {
+    max-width: 350px !important;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+
+  .bookItems-secs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .books {
+    align-items: center;
+  }
+
+  .bookDetails {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .line {
+    display: none;
+  }
+
+  .update-secInner {
+    display: none;
+  }
+
+  .chapter-secInner {
+    text-align: center;
+    margin-top: 30px;
+  }
+}
+
+@media screen and (max-width:768px) {
+  .bookItem {
+    max-width: 700px;
+    margin: auto;
+    margin-bottom: 50px;
+  }
+
+  .update-secInner {
+    display: none;
+  }
+}
