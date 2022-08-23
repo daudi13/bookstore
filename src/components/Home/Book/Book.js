@@ -33,9 +33,10 @@ const Book = ({ book, chapter, progress }) => {
     dispatch(getBooks());
   };
 
-  const handleDelete = () => (
-    dispatch(deleteBook(meta))
-  );
+  const handleDelete = () => {
+    const data = { userId, bookId };
+    dispatch(deleteBook(data));
+  };
 
   return (
     <li className="bookItem">
