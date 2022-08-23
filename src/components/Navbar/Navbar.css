@@ -57,3 +57,25 @@ hr {
   margin-right: 15px;
   color: #e8e8e8;
 }
+
+@media screen and (max-width:425px) {
+  .logo {
+    font-size: 11px !important;
+  }
+
+  .link-btn {
+    font-size: 12px;
+  }
+
+  .logout {
+    padding: 5px;
+    font-size: 10px;
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    font-size: 17px;
+  }
+}
