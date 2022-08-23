@@ -14,7 +14,6 @@ const LoginPage = () => {
   const { register, handleSubmit } = useForm();
   const { state } = useLocation();
   const navigate = useNavigate();
-  const userState = useSelector((store) => store.user.loggedIn);
 
   const onSubmit = async (data) => {
     const userData = await requestLogin(data);
@@ -28,7 +27,7 @@ const LoginPage = () => {
 
   return (
     <>
-      <Navbar logged={userState} />
+      <Navbar />
       <div className="auth-container">
         <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
           <p className={errMsg ? 'errMsg' : 'offscreen'} aria-live="assertive">

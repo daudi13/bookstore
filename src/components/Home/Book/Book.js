@@ -49,7 +49,7 @@ const Book = ({ book, percent }) => {
             <li className="bookAuthor">{book.author}</li>
           </ul>
           <ul className="actionButtons">
-            <li><button type="button" onClick={handleDelete}>Remove</button></li>
+            <li><button type="button" className="removeBtn" onClick={handleDelete}>Remove</button></li>
           </ul>
         </li>
         <li className="update-sec">

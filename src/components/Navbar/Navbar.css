@@ -31,9 +31,12 @@ nav {
   color: #121212;
 }
 
-.userIcon {
+.logout {
   margin-left: auto;
-  width: 30px;
+  border: none;
+  padding: 5px 10px;
+  background-color: red;
+  color: #fff;
 }
 
 a {

@@ -52,13 +52,18 @@
   margin-top: 15px;
 }
 
-.actionButtons > li > button {
+.removeBtn {
   padding: 5px 10px 0 0;
   font-family: 'RobotoSlab', sans-serif;
   font-weight: 300;
   font-size: 15px;
-  background-color: #fff;
-  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  background-color: inherit;
+  text-align: center;
+  border: 1px solid #4386bf;
   color: #4386bf;
   text-align: left;
 }
@@ -93,4 +98,3 @@
   align-items: center;
   gap: 20px;
 }
-
