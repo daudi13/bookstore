@@ -7,7 +7,8 @@ import { decodeToken } from 'react-jwt';
 import { deleteBook } from '../../../redux/books/bookSlice';
 import Progress from '../../progress/progress';
 
-const Book = ({ book, chapter, progress }) => {
+const Book = ({ book, percent }) => {
+  const [count, setCount] = useState(+(book.current_chapter) + 1);
   const myToken = localStorage.getItem('token');
   const dispatch = useDispatch();
   const decodedToken = decodeToken(myToken);
