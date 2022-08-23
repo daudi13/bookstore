@@ -23,14 +23,12 @@ const BookList = () => {
     <ul className="booklist-box">
       {
         bookList.length ? bookList.map((book) => {
-          const progress = Math.floor(Math.random() * 30);
-          const chapter = Math.floor((progress / 30) * 100);
+          const percentage = Math.floor((+(book.current_chapter) / +(book.total_chapters)) * 100);
           return (
             <Book
               key={book.id}
               book={book}
-              chapter={chapter}
-              progress={progress}
+              percent={percentage}
             />
           );
         }) : <h2 className="notice">No books to display!!</h2>

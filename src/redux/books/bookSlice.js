@@ -44,14 +44,12 @@ export const updateBook = createAsyncThunk('books/updateBook', async ({ body, us
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      book: {
       title: body.title,
       author: body.author,
       genre: body.genre,
       userId,
       current_chapter: body.current_chapter,
       total_chapters: body.total_chapters,
-      },
     }),
   });
 

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable consistent-return */
 const signUp = async (body) => {
   const res = await fetch('http://localhost:3001/users', {
     method: 'POST',
