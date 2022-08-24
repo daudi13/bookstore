@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+button {
+  cursor: pointer;
+}
+
 body {
   width: 100%;
   font-family: 'Montserrat', sans-serif;
@@ -39,13 +43,14 @@ button {
 
 .auth-container {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  background-image: url("https://images.unsplash.com/photo-1481627834876-b7833e8f5570?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=928&q=80");
+  background-image: url("./components/Home/image/janko-ferlic-sfL_QOnmy00-unsplash\ \(1\).jpg");
   background-size: cover;
 }
 
@@ -59,6 +64,10 @@ button {
   align-items: center;
   justify-content: center;
   width: 450px;
+  backdrop-filter: blur(3px);
+  box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.56);
+-webkit-box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.56);
+-moz-box-shadow: 10px 10px 5px -2px rgba(0,0,0,0.56);
 }
 
 .group {
@@ -97,4 +106,14 @@ label {
 .errMsg {
   color: red;
   font-size: 12px;
+}
+
+@media screen and (max-width: 425px) {
+  .auth-form {
+    width: 350px;
+  }
+
+  label {
+    width: 300px;
+  }
 }
