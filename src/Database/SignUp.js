@@ -21,7 +21,7 @@ const signUp = async (body) => {
       return data;
     }
   } catch (error) {
-    (err) => err;
+    (err) => console.error(err);
   }
 };
 
