@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import './Navbar.css';
+import { FaHamburger } from 'react-icons/fa';
 
 const Navbar = ({ logged }) => {
+  const [menu, setMenu] = useState(false);
   const navigate = useNavigate();
   const { state } = useLocation();
-  console.log(logged);
   const handleLogOut = () => {
     localStorage.clear();
     navigate(state?.path || '/');
@@ -19,15 +20,28 @@ const Navbar = ({ logged }) => {
           {
             logged
           && (
-          <>
-            <ul className="nav">
+          <div className="nav-bar">
+            <ul className="desk nav">
               <li><NavLink className="link-btn" to="/App">Home</NavLink></li>
               <li><NavLink className="link-btn" to="/Categories">Category</NavLink></li>
             </ul>
-            <button className="logout" onClick={handleLogOut}>Log Out</button>
-          </>
+            <button className="desk logout" onClick={handleLogOut}>Log Out</button>
+            {
+                menu && (
+                <>
+                  <ul className="nav">
+                    <li><NavLink className="link-btn" to="/App">Home</NavLink></li>
+                    <li><NavLink className="link-btn" to="/Categories">Category</NavLink></li>
+                  </ul>
+                  <button className="logout" onClick={handleLogOut}>Log Out</button>
+                  <button className="toggle-menu" onClick={() => setMenu(false)}>X</button>
+                </>
+                )
+            }
+          </div>
           )
         }
+          <button className="toggle-menu" onClick={() => setMenu(true)}><FaHamburger /></button>
         </nav>
       </div>
     </>
