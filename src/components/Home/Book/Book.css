@@ -1,5 +1,8 @@
 .bookItem {
   width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
   border: 1px solid #e8e8ee;
   padding: 30px;
   border-radius: 4px;

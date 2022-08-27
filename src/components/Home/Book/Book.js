@@ -20,7 +20,6 @@ const Book = ({ book, percent }) => {
 
   const handleUpdate = async () => {
     setCount((count) => count + 1);
-    console.log(count);
     const body = {
       title: book.title,
       author: book.author,
