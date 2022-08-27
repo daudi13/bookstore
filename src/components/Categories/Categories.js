@@ -5,7 +5,6 @@ import Navbar from '../Navbar/Navbar';
 
 const Categories = () => {
   const Categories = useSelector((state) => state.categoriesReducer);
-  const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const handleAction = () => (
     dispatch(categoriesStatus())

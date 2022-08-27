@@ -6,7 +6,7 @@ const initialState = {
 };
 
 export const postBook = createAsyncThunk('books/postbooks', async ({ data, id }) => {
-  await fetch(`http://localhost:3001/users/${id}/books`, {
+  await fetch(`https://bstorecms.herokuapp.com/users/${id}/books`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -25,20 +25,20 @@ export const postBook = createAsyncThunk('books/postbooks', async ({ data, id })
 });
 
 export const getBooks = createAsyncThunk('books/getBooks', async (userId) => {
-  const res = await fetch(`http://localhost:3001/users/${userId}/books`);
+  const res = await fetch(`https://bstorecms.herokuapp.com/users/${userId}/books`);
   const data = await res.json();
   return data.data;
 });
 
 export const deleteBook = createAsyncThunk('books/deleteBook', async ({ userId, bookId }) => {
-  await fetch(`http://localhost:3001/users/${userId}/books/${bookId}`, {
+  await fetch(`https://bstorecms.herokuapp.com/users/${userId}/books/${bookId}`, {
     method: 'DELETE',
     header: { 'Content-Type': 'application/json' },
   });
 });
 
 export const updateBook = createAsyncThunk('books/updateBook', async ({ body, userId }) => {
-  const res = await fetch(`http://localhost:3001/users/${userId}/books/${body.bookId}`, {
+  const res = await fetch(`https://bstorecms.herokuapp.com/users/${userId}/books/${body.bookId}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',

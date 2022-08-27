@@ -9,7 +9,6 @@ nav {
   background-color: #e8e8e8;
   width: 100%;
   padding: 20px;
-  grid-template-columns: auto auto auto;
   position: fixed;
   top: 0;
   z-index: 100;
@@ -21,6 +20,7 @@ nav {
   color: #0290ff;
   font-weight: 700;
   margin-right: 60px;
+  width: 43%;
 }
 
 .link-btn {
@@ -32,7 +32,6 @@ nav {
 }
 
 .logout {
-  margin-left: auto;
   border: none;
   padding: 5px 10px;
   background-color: red;
@@ -53,24 +52,62 @@ a {
   height: 100%;
 }
 
+.nav-bar {
+  width: 57%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 hr {
   margin-right: 15px;
   color: #e8e8e8;
 }
 
+.toggle-menu {
+  display: none;
+}
+
 @media screen and (max-width:425px) {
-  .logo {
-    font-size: 11px !important;
-  }
 
   .link-btn {
     font-size: 12px;
+  }
+
+  .toggle-menu {
+    display: block;
+    border: none;
+    font-size: 21px;
   }
 
   .logout {
     padding: 5px;
     font-size: 10px;
     width: 50px;
+  }
+
+  .desk {
+    display: none;
+  }
+
+  .nav-bar {
+    position: fixed;
+    justify-content: space-evenly;
+    top: 50px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #e8e8e8;
+    
+  }
+
+  nav {
+    justify-content: space-between;
+  }
+
+  .nav {
+    margin-right: 0;
   }
 }
 

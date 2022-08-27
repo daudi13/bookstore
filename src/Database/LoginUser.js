@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable consistent-return */
 const requestLogin = async (body) => {
-  const res = await fetch('http://localhost:3001/users/sign_in', {
+  const res = await fetch('https://bstorecms.herokuapp.com/users/sign_in', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
