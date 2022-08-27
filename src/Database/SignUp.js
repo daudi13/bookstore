@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable consistent-return */
 const signUp = async (body) => {
-  const res = await fetch('http://localhost:3001/users', {
+  const res = await fetch('https://bstorecms.herokuapp.com/users', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -21,7 +21,7 @@ const signUp = async (body) => {
       return data;
     }
   } catch (error) {
-    (err) => console.error(err);
+    (err) => err;
   }
 };
 
