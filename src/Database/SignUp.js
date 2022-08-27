@@ -17,7 +17,6 @@ const signUp = async (body) => {
   try {
     if (res.ok) {
       localStorage.setItem('token', res.headers.get('Authorization').split(' ')[1]);
-      console.log(res.headers.get('Authorization').split(' ')[1]);
       const data = await res.json();
       return data;
     }
