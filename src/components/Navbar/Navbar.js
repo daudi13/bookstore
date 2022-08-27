@@ -25,7 +25,7 @@ const Navbar = ({ logged }) => {
               <li><NavLink className="link-btn" to="/App">Home</NavLink></li>
               <li><NavLink className="link-btn" to="/Categories">Category</NavLink></li>
             </ul>
-            <button className="desk logout" onClick={handleLogOut}>Log Out</button>
+            <button type="button" className="desk logout" onClick={handleLogOut}>Log Out</button>
             {
                 menu && (
                 <>
@@ -33,15 +33,15 @@ const Navbar = ({ logged }) => {
                     <li><NavLink className="link-btn" to="/App">Home</NavLink></li>
                     <li><NavLink className="link-btn" to="/Categories">Category</NavLink></li>
                   </ul>
-                  <button className="logout" onClick={handleLogOut}>Log Out</button>
-                  <button className="toggle-menu" onClick={() => setMenu(false)}>X</button>
+                  <button type="button" className="logout" onClick={handleLogOut}>Log Out</button>
+                  <button type="button" className="toggle-menu" onClick={() => setMenu(false)}>X</button>
                 </>
                 )
             }
           </div>
           )
         }
-          <button className="toggle-menu" onClick={() => setMenu(true)}><FaHamburger /></button>
+          <button type="button" className="toggle-menu" aria-label="ham" onClick={() => setMenu(true)}><FaHamburger /></button>
         </nav>
       </div>
     </>
