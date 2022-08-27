@@ -10,7 +10,6 @@ const Categories = () => {
   const handleAction = () => (
     dispatch(categoriesStatus())
   );
-  console.log(user);
   return (
     <>
       <Navbar logged />
