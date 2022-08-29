@@ -11,15 +11,21 @@ import Navbar from '../Navbar/Navbar';
 const SignUpPage = () => {
   const [errMsg, setErrMsg] = useState('');
   const { register, handleSubmit } = useForm();
+  const [loading, setLoading] = useState(false);
+
   const { state } = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const onSubmit = async (data) => {
+    setLoading(true);
     const newUserData = await signUp(data);
+
     if (data.password !== data.password_confirmation) {
       setErrMsg('Your passwords do not match');
+      setLoading(false);
     } else if (newUserData === undefined) {
       setErrMsg('User already exist use another email');
+      setLoading(false);
     } else {
       dispatch(logUserin(newUserData));
       navigate(state?.path || '/App');
@@ -30,9 +36,11 @@ const SignUpPage = () => {
       <Navbar />
       <div className="auth-container">
         <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
-          <p className={errMsg ? 'errMsg' : 'offscreen'} aria-live="assertive">
-            {errMsg}
-          </p>
+          {loading ? 'loading...' : (
+            <p className={errMsg ? 'errMsg' : 'offscreen'} aria-live="assertive">
+              {errMsg}
+            </p>
+          )}
           <h3>Sign up</h3>
           <div className="group">
             <label htmlFor="email">Email</label>
