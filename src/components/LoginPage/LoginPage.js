@@ -10,15 +10,18 @@ import Navbar from '../Navbar/Navbar';
 
 const LoginPage = () => {
   const [errMsg, setErrMsg] = useState('');
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
   const { register, handleSubmit } = useForm();
   const { state } = useLocation();
   const navigate = useNavigate();
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const userData = await requestLogin(data);
     if (userData === undefined) {
       setErrMsg('Wrong Email or password');
+      setLoading(false);
     } else {
       dispatch(logUserin(userData));
       navigate(state?.path || '/App');
@@ -30,9 +33,11 @@ const LoginPage = () => {
       <Navbar />
       <div className="auth-container">
         <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
-          <p className={errMsg ? 'errMsg' : 'offscreen'} aria-live="assertive">
-            {errMsg}
-          </p>
+          {loading ? 'loading...' : (
+            <p className={errMsg ? 'errMsg' : 'offscreen'} aria-live="assertive">
+              {errMsg}
+            </p>
+          )}
           <h3>Sign in</h3>
           <div className="group">
             <label htmlFor="email">Email</label>
