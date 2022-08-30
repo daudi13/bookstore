@@ -39,7 +39,7 @@ const BookForm = ({ closeModal }) => {
             <input
               type="text"
               htmlFor="book-book-author"
-              placeholder="book authour"
+              placeholder="book author"
               className="input"
               {...register('author', { required: true, minlength: 2 })}
             />
