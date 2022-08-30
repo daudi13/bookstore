@@ -17,7 +17,7 @@ const BookList = () => {
 
   useEffect(() => {
     dispatch(getBooks(currentUserId));
-  }, [bookList]);
+  }, []);
   return (
     <ul className="booklist-box">
       {

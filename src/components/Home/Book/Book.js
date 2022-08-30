@@ -16,7 +16,7 @@ const Book = ({ book, percent }) => {
   const bookId = book.id;
   useEffect(() => {
     dispatch(getBooks(userId));
-  }, [book, percent]);
+  }, []);
 
   const handleUpdate = async () => {
     setCount((count) => count + 1);
