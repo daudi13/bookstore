@@ -13,12 +13,11 @@ const BookList = () => {
   const decodedToken = decodeToken(myToken);
   const currentUserId = +(decodedToken.sub);
 
-  useEffect(() => {
-    dispatch(getBooks(currentUserId));
-  }, []);
-
   const bookList = books === undefined ? dispatch(getBooks(currentUserId)) : books;
 
+  useEffect(() => {
+    dispatch(getBooks(currentUserId));
+  }, [bookList]);
   return (
     <ul className="booklist-box">
       {
