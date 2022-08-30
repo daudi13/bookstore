@@ -1,6 +1,6 @@
 # Bookstore
 
-![](./public/images/screenshot.png)
+![](./public/images/Screenshot%20.png)
 The Bookstore is a website similar to the "Awesome Books" website built in the previous module. You will create an MVP version of it that allows you to:
 
 
