@@ -8,7 +8,7 @@ The Bookstore is a website similar to the "Awesome Books" website built in the p
 - Add a book.
 - Remove a selected book.
 
-Check the live demo [here](https://bookstorecms2022.herokuapp.com/)
+Check the live demo [here](https://bookstorecms.vercel.app/)
 check the backend repo [here](https://github.com/daudi13/bookstoreAuthApi)
 
 ## Project List
@@ -28,9 +28,9 @@ check the backend repo [here](https://github.com/daudi13/bookstoreAuthApi)
 To get a local copy up and running follow the steps below
 
 ### 
-- clone this repo by copy pasting this on your terminal ``git clone https://github.com/daudi13/bookstore.git``
+- clone this repo by copy pasting this on your terminal ``git clone https://github.com/daudi13/bookstore``
 
-- open the project folder 'cd math-magician'
+- open the project folder 'cd bookstore'
 - Run 'npm install' to install all dependencies
 - Run 'npm start' to start the live server
 
