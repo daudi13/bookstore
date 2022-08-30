@@ -10,6 +10,7 @@
   min-height: 100vh;
   height: 100%;
   background-attachment: fixed;
+  position: relative;
 }
 
 .addBook {
@@ -31,4 +32,14 @@
   right: 20px;
   border: none;
   z-index: 5;
+}
+
+
+.success {
+  position: absolute;
+  top: 5rem;
+  background-color: rgb(40, 148, 236);;
+  color: rgb(255, 255, 255);
+  z-index: 1000;
+  padding: 5px 10px;
 }
