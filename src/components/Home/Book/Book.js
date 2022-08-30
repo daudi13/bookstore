@@ -30,7 +30,7 @@ const Book = ({ book, percent }) => {
     };
     const meta = { body, userId };
     dispatch(updateBook(meta));
-    dispatch(getBooks());
+    dispatch(getBooks(userId));
   };
 
   const handleDelete = () => {

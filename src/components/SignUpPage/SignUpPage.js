@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { Circles } from 'react-loader-spinner';
 import signUp from '../../Database/SignUp';
 import { logUserin } from '../../redux/user/userSlice';
 import Navbar from '../Navbar/Navbar';
@@ -36,7 +37,7 @@ const SignUpPage = () => {
       <Navbar />
       <div className="auth-container">
         <form className="auth-form" onSubmit={handleSubmit(onSubmit)}>
-          {loading ? 'loading...' : (
+          {loading ? <Circles height="30" width="30" color="blue" ariaLabel="three-dots-loading" /> : (
             <p className={errMsg ? 'errMsg' : 'offscreen'} aria-live="assertive">
               {errMsg}
             </p>
