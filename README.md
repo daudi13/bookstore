@@ -9,6 +9,7 @@ The Bookstore is a website similar to the "Awesome Books" website built in the p
 - Remove a selected book.
 
 Check the live demo [here](https://bookstorecms2022.herokuapp.com/)
+check the backend repo [here](https://github.com/daudi13/bookstoreAuthApi)
 
 ## Project List
 
