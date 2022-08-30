@@ -22,6 +22,7 @@ check the backend repo [here](https://github.com/daudi13/bookstoreAuthApi)
 ## Built with
 - React
 - CSS3
+- redux-toolkit
 
 ## Getting Started
 To get a local copy up and running follow the steps below
